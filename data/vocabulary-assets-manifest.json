@@ -72,6 +72,76 @@
       "sourceType": "generated",
       "license": "project-generated",
       "status": "approved"
+    },
+    {
+      "word": "pineapple",
+      "path": "/vocabulary-assets/pineapple.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cherry",
+      "path": "/vocabulary-assets/cherry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "blueberry",
+      "path": "/vocabulary-assets/blueberry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "kiwi",
+      "path": "/vocabulary-assets/kiwi.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "coconut",
+      "path": "/vocabulary-assets/coconut.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "carrot",
+      "path": "/vocabulary-assets/carrot.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "potato",
+      "path": "/vocabulary-assets/potato.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "tomato",
+      "path": "/vocabulary-assets/tomato.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "onion",
+      "path": "/vocabulary-assets/onion.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "corn",
+      "path": "/vocabulary-assets/corn.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
     }
   ]
 }
