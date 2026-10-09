@@ -14,6 +14,9 @@ export class KitchenScene {
   private resizeObserver: ResizeObserver;
   private hovered?: THREE.Group;
   private clock = new THREE.Clock();
+  private mascot?: THREE.Group;
+  private celebrateUntil = 0;
+  private selected?: THREE.Group;
   onSelect?: (key: string) => void;
 
   constructor(private container: HTMLElement, items: ContentItem[]) {
@@ -45,6 +48,7 @@ export class KitchenScene {
     fill.position.set(5, 5, 3); this.scene.add(fill);
 
     this.buildRoom();
+    this.buildMascot();
     const unique = Array.from(new Map(items.map(item => [item.assetKey, item])).values()).slice(0, 5);
     unique.forEach((item, i) => {
       const model = this.createItem(item.assetKey);
@@ -109,6 +113,26 @@ export class KitchenScene {
       const leaf = this.addMesh(this.scene, new THREE.SphereGeometry(.17,10,10),'#4d9a70',[7.65 + Math.cos(i*1.25)*.27,2.6 + (i%2)*.18,-4.5 + Math.sin(i*1.25)*.2]);
       leaf.scale.set(.8,2.0,.8);
     }
+  }
+  /** Original cartoon guide, made with native meshes for offline support. */
+  private buildMascot() {
+    const pet = new THREE.Group();
+    const body=this.addMesh(pet,new THREE.SphereGeometry(.60,24,20),'#f4aa6d',[0,.65,0]);body.scale.set(1,.94,.82);
+    const face=this.addMesh(pet,new THREE.SphereGeometry(.46,24,20),'#ffe4bb',[0,.72,.38]);face.scale.set(1,.83,.45);
+    for(const x of [-.19,.19]) {
+      const ear=this.addMesh(pet,new THREE.CapsuleGeometry(.16,.48,8,12),'#f4aa6d',[x,1.45,-.06]);
+      ear.rotation.z=x<0?.18:-.18;
+      this.addMesh(pet,new THREE.SphereGeometry(.075,16,12),'#3e4a49',[x,.81,.59]);
+      const cheek=this.addMesh(pet,new THREE.SphereGeometry(.10,12,12),'#f99fa2',[x*1.6,.59,.57]);cheek.scale.z=.5;
+    }
+    this.addMesh(pet,new THREE.SphereGeometry(.075,12,12),'#925d4e',[0,.57,.66]);
+    for(const x of [-.32,.32])this.addMesh(pet,new THREE.SphereGeometry(.18,16,12),'#f4aa6d',[x,.13,.09]);
+    pet.position.set(-3.7,1.55,-1.1);pet.scale.setScalar(.95);
+    this.scene.add(pet);this.mascot=pet;
+  }
+  celebrate(key: string) {
+    this.selected=this.targets.find(target=>target.userData.key===key);
+    this.celebrateUntil=this.clock.getElapsedTime()+1.25;
   }
   private createItem(key: string): THREE.Group {
     const g = new THREE.Group();
@@ -177,6 +201,14 @@ export class KitchenScene {
       item.scale.lerp(new THREE.Vector3(scale,scale,scale),.14);
       item.rotation.y=Math.sin(t*.55+i)*.055;
     }
+    if(this.mascot){
+      this.mascot.position.y=1.55+Math.sin(t*2.7)*.085;
+      this.mascot.rotation.z=Math.sin(t*1.4)*.07;
+    }
+    if(this.selected && t<this.celebrateUntil) {
+      this.selected.rotation.y+=.13;
+      this.selected.scale.setScalar(1.15+Math.sin(t*16)*.07);
+    } else if(t>=this.celebrateUntil)this.selected=undefined;
     this.renderer.render(this.scene,this.camera);
   };
   dispose(){
