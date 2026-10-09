@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "policy": "licensed-web-first-then-generated",
+  "targetStyle": "children-3d-toy-clay",
+  "assets": [
+    {
+      "word": "apple",
+      "path": "/vocabulary-assets/apple.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "banana",
+      "path": "/vocabulary-assets/banana.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "orange",
+      "path": "/vocabulary-assets/orange.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pear",
+      "path": "/vocabulary-assets/pear.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "peach",
+      "path": "/vocabulary-assets/peach.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "grape",
+      "path": "/vocabulary-assets/grape.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "strawberry",
+      "path": "/vocabulary-assets/strawberry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "watermelon",
+      "path": "/vocabulary-assets/watermelon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "lemon",
+      "path": "/vocabulary-assets/lemon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "mango",
+      "path": "/vocabulary-assets/mango.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    }
+  ]
+}
