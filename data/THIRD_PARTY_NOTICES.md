@@ -1,14 +1,45 @@
 # Third-party vocabulary data notice
 
-The bundled `common-english-2000.csv` was programmatically selected and simplified from vocabulary data in:
+The bundled `common-english-2000.csv` is a programmatically curated beginner/common vocabulary pack.
 
-- Project: KyleBing/english-vocabulary
-- Source: https://github.com/KyleBing/english-vocabulary
-- License: BSD 3-Clause License
+Selection/ranking source:
+- hermitdave/FrequencyWords
+- https://github.com/hermitdave/FrequencyWords
+- MIT License
 
-The original license text is reproduced below as required.
+Chinese meaning source:
+- KyleBing/english-vocabulary
+- https://github.com/KyleBing/english-vocabulary
+- BSD 3-Clause License
 
----
+The project prioritizes elementary-school meanings where available, simplifies dictionary-style glosses, de-duplicates entries, and filters a small set of clearly adult/violent terms for the children's learning context.
+
+## MIT License — FrequencyWords
+
+MIT License
+
+Copyright (c) 2016 Hermit Dave
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+## BSD 3-Clause License — english-vocabulary
 
 BSD 3-Clause License
 
