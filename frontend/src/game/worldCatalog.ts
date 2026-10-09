@@ -1,4 +1,5 @@
 import type {ContentItem} from '../domain';
+import {loadKitchenProgress} from './kitchenWorld';
 
 export type ThemeActivity='DISCOVER_CARDS'|'LISTEN_IMAGE'|'AUDIO_MATCH'|'COMMAND_IMAGE'|'MIXED_CHALLENGE';
 export interface ThemeSeed {text:string;meaningCn:string;emoji:string}
@@ -34,3 +35,7 @@ export function themeSeedItems(world:ThemeWorld,published:ContentItem[]):Content
  return world.seeds.map(seed=>byText.get(seed.text)||{id:'builtin-'+world.id+'-'+seed.text,text:seed.text,meaningCn:seed.meaningCn,type:'WORD',assetKey:'',status:'READY'});
 }
 export function emojiFor(world:ThemeWorld,text:string){return world.seeds.find(x=>x.text===text.toLowerCase())?.emoji??'✨'}
+export function isThemeWorldUnlocked(id:string){
+ const index=themeWorlds.findIndex(x=>x.id===id);if(index<0)return false;
+ return index===0?loadKitchenProgress().completed:loadThemeProgress(themeWorlds[index-1].id).completed;
+}

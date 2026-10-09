@@ -3,7 +3,7 @@ import {computed,onBeforeUnmount,onMounted,ref,watch} from 'vue';
 import {useRoute,useRouter} from 'vue-router';
 import {latestPackage} from '../api';import {db,queueAttempt,syncAttempts} from '../offline/db';
 import type {AttemptEvent,ContentItem} from '../domain';
-import {emojiFor,loadThemeProgress,saveThemeProgress,themeSeedItems,themeWorlds,type ThemeProgress} from '../game/worldCatalog';
+import {emojiFor,isThemeWorldUnlocked,loadThemeProgress,saveThemeProgress,themeSeedItems,themeWorlds,type ThemeProgress} from '../game/worldCatalog';
 const route=useRoute(),router=useRouter();const world=computed(()=>themeWorlds.find(x=>x.id===route.params.worldId));
 const items=ref<ContentItem[]>([]),stageIndex=ref(0),round=ref(0),phase=ref<'loading'|'intro'|'playing'|'celebrating'|'complete'>('loading');
 const progressState=ref<ThemeProgress>({unlockedStage:0,bestStars:{},completed:false});const discovered=ref<string[]>([]),options=ref<ContentItem[]>([]),selectedAudio=ref('');
@@ -30,7 +30,7 @@ async function confirmAudio(){if(!selectedAudio.value){message.value='先试听�
 function finish(){phase.value='complete';const key=stage.value!.id;if(stage.value?.kind!=='DISCOVER_CARDS')progressState.value.bestStars[key]=Math.max(progressState.value.bestStars[key]??0,stars.value);if(stageIndex.value<4)progressState.value.unlockedStage=Math.max(progressState.value.unlockedStage,stageIndex.value+1);else progressState.value.completed=true;saveThemeProgress(world.value!.id,progressState.value);message.value=stageIndex.value===4?world.value!.title+'全部完成！':'这个阶段完成啦，继续下一步吧！';syncNow()}
 function next(){if(stageIndex.value<4)openStage(stageIndex.value+1);else{const i=themeWorlds.findIndex(x=>x.id===world.value?.id);const n=themeWorlds[i+1];router.push(n?'/kid/world/'+n.id:'/kid')}}
 function syncNow(){syncAttempts(localStorage.getItem('kidToken')??'').catch(()=>{})}
-async function load(){const w=world.value;if(!w){router.replace('/kid');return}progressState.value=loadThemeProgress(w.id);let published:ContentItem[]=[];try{const pkg=await latestPackage();packageVersion=pkg.packageVersion;published=pkg.items;await db.packages.put(pkg)}catch{try{const pkg=await db.packages.orderBy('publishedAt').last();if(pkg){packageVersion=pkg.packageVersion;published=pkg.items}}catch{}}items.value=themeSeedItems(w,published);phase.value='intro';message.value=w.stages[0].goal}
+async function load(){const w=world.value;if(!w){router.replace('/kid');return}if(!isThemeWorldUnlocked(w.id)){router.replace('/kid');return}progressState.value=loadThemeProgress(w.id);let published:ContentItem[]=[];try{const pkg=await latestPackage();packageVersion=pkg.packageVersion;published=pkg.items;await db.packages.put(pkg)}catch{try{const pkg=await db.packages.orderBy('publishedAt').last();if(pkg){packageVersion=pkg.packageVersion;published=pkg.items}}catch{}}items.value=themeSeedItems(w,published);phase.value='intro';message.value=w.stages[0].goal}
 watch(()=>route.params.worldId,()=>void load());onMounted(()=>void load());onBeforeUnmount(()=>{if(timer)clearTimeout(timer);window.speechSynthesis?.cancel()});
 </script>
 <template><main v-if="world&&stage" class="theme" :class="'world-'+world.order"><div class="page">

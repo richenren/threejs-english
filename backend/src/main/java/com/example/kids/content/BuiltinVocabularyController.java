@@ -31,7 +31,7 @@ public class BuiltinVocabularyController {
       CSVParser parser=CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).setIgnoreSurroundingSpaces(true).get().parse(reader)){
    for(var row:parser){
     total++;
-    String word=row.isSet("text")?row.get("text").replace("\uFEFF","").trim():"";
+    String word=row.isSet("text")?row.get("text").trim():row.isSet("\uFEFFtext")?row.get("\uFEFFtext").trim():"";
     String cn=row.isSet("meaningCn")?row.get("meaningCn").trim():"";
     if(word.isBlank()){failed++;failures.add("line "+row.getRecordNumber()+": empty word");continue;}
     String key=word.toLowerCase(Locale.ROOT);
