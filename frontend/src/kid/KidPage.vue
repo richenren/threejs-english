@@ -18,7 +18,7 @@ const stars = ref(0);
 const earned = ref(0);
 const message = ref('准备好探险了吗？');
 const soundEnabled = ref(true);
-const sessionId = crypto.randomUUID();
+let sessionId = crypto.randomUUID();
 const canPlay = computed(() => phase.value === 'playing');
 const current = computed(() => items.value[round.value]);
 const progress = computed(() => items.value.length ? (phase.value === 'complete' ? 100 : round.value / items.value.length * 100) : 0);
@@ -48,6 +48,9 @@ function resetRound() {
 }
 function startAdventure() {
   if (!items.value.length) return;
+  if (advanceTimer) clearTimeout(advanceTimer);
+  if (speakingTimer) clearTimeout(speakingTimer);
+  sessionId = crypto.randomUUID();
   stars.value = 0; round.value = 0;
   resetRound();
 }
