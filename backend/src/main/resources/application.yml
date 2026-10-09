@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  config:
+    # Loaded from backend/config/application-local.yml when working directory is backend.
+    # Override with SPRING_CONFIG_IMPORT for other deployment layouts.
+    import: "optional:file:./config/application-local.yml"
+  datasource:
+    url: ${DB_URL:jdbc:h2:file:./data/kids;MODE=MySQL;DATABASE_TO_LOWER=TRUE}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update # Local development only; use migrations in production
+    open-in-view: false
+ai:
+  base-url: ""
+  api-key: ""
+  model: ""
+  timeout-seconds: 25
+parent:
+  access-key: ${PARENT_ACCESS_KEY:}
