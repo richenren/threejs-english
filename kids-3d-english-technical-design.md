@@ -1894,3 +1894,11 @@ loading → intro → playing → celebrating → playing
 - ThemeWorldPage 复用 DISCOVER_CARDS / LISTEN_IMAGE / AUDIO_MATCH / COMMAND_IMAGE / MIXED_CHALLENGE 五阶段模型；当前采用 Emoji 作为无正式图片时的功能占位，后续素材资源优先覆盖，不修改课程结构。
 - 内置词包资源位于 classpath `vocabulary/common-english-2000.csv`，由 BuiltinVocabularyController 幂等激活。已存在的非 READY 词条会批准为 READY；已 READY 的不重复创建。
 - CSV 同时暴露在前端 `/data/common-english-2000.csv` 便于下载；第三方数据许可证记录在 `data/THIRD_PARTY_NOTICES.md`。
+
+
+## 2026-10-09 V1.5 Vocabulary Library 路由
+- 新增 `/kid/vocabulary` 与 VocabularyLibraryPage，读取 latest published LearningPackage 的全部 READY items。
+- `vocabularyCourse.ts` 负责 10 词分单元、200 词分章节、搜索定位与本地完成进度；不硬编码 2000 数量，可自动适配任意已发布词数。
+- Vocabulary Library 的答题继续写 AttemptEvent：worldId=vocabulary-library、stageId=vocab-unit-{n}、activityType=LISTEN_MEANING。
+- Theme World 仍可只消费少量精选词；“是否有主题场景”不再决定一个词能否学习。
+- 场景封面统一放在 `frontend/public/scenes/`，当前 SVG 采用柔和渐变、圆角、阴影和玩具化构图。后续可无代码替换为同路径高质量 WebP/AVIF。

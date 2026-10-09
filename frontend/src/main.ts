@@ -4,6 +4,7 @@ import { createPinia } from 'pinia';
 import KidPage from './kid/KidPage.vue';
 import WorldMapPage from './kid/WorldMapPage.vue';
 import ThemeWorldPage from './kid/ThemeWorldPage.vue';
+import VocabularyLibraryPage from './kid/VocabularyLibraryPage.vue';
 import ParentPage from './parent/ParentPage.vue';
 import './style.css';
 
@@ -12,6 +13,7 @@ const router = createRouter({
   routes: [
     { path: '/', redirect: '/kid' },
     { path: '/kid', component: WorldMapPage },
+    { path: '/kid/vocabulary', component: VocabularyLibraryPage },
     { path: '/kid/world/kitchen', component: KidPage },
     { path: '/kid/world/:worldId', component: ThemeWorldPage },
     { path: '/parent', component: ParentPage },
