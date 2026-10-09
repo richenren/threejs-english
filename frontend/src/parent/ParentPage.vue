@@ -15,7 +15,8 @@ async function publish(){if(!confirm('将所有已批准词条发布为新的不
 async function importCsv(e:Event){
  const input=e.target as HTMLInputElement;
  const file=input.files?.[0];if(!file)return;
- const state=importState.value={active:true,total:0,processed:0,created:0,skipped:0,failed:0,errors:[]};
+ importState.value={active:true,total:0,processed:0,created:0,skipped:0,failed:0,errors:[]};
+ const state=importState.value;
  error.value='';feedback.value='正在读取 '+file.name+' …';busy.value=true;
  try{
   if(!key.value.trim())throw new Error('请先填写家长访问密钥并点击“保存并连接”');
