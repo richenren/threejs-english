@@ -1,0 +1,2 @@
+import {createApp} from 'vue';import {createRouter,createWebHistory} from 'vue-router';import {createPinia} from 'pinia';import KidPage from './kid/KidPage.vue';import ParentPage from './parent/ParentPage.vue';import './style.css';
+const router=createRouter({history:createWebHistory(),routes:[{path:'/',redirect:'/kid'},{path:'/kid',component:KidPage},{path:'/parent',component:ParentPage}]});const app=createApp({template:'<router-view />'});app.use(createPinia());app.use(router);app.mount('#app');
