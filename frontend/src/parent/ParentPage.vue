@@ -19,11 +19,11 @@ async function batch(action:'REVIEW'|'APPROVE'|'REJECT'){
   feedback.value='成功 '+result.succeeded+' 条，失败 '+result.failed+' 条';
   if(result.failed)error.value=result.failures.slice(0,5).map(x=>x.id+': '+x.reason).join('；');
   selected.value=[];allFiltered.value=false;
- },'批量处理完成');
+ },'');
 }
 const assets=['','food.apple','food.banana','food.bread','tableware.cup','tableware.plate'];
 function saveKey(){sessionStorage.setItem('parentAccessKey',key.value);refresh()}
-async function run(task:()=>Promise<any>,success:string){busy.value=true;error.value='';try{await task();feedback.value=success;await refresh()}catch(e){error.value=(e as Error).message}finally{busy.value=false}}
+async function run(task:()=>Promise<any>,success:string){busy.value=true;error.value='';try{await task();if(success)feedback.value=success;await refresh()}catch(e){error.value=(e as Error).message}finally{busy.value=false}}
 async function refresh(){try{items.value=await parentApi.list()}catch(e){error.value=(e as Error).message}}
 async function create(){if(!text.value.trim())return;await run(async()=>{await parentApi.create({text:text.value,meaningCn:meaning.value,type:'WORD',assetKey:assetKey.value});text.value='';meaning.value='';assetKey.value='';suggestion.value=''},'草稿已保存')}
 async function generate(){if(!text.value.trim())return;await run(async()=>{const result=await parentApi.suggest(text.value);meaning.value=result.meaningCn;assetKey.value=result.assetKey;suggestion.value=result.exampleSentence},'AI 建议已填写到草稿，尚未发布；请先人工检查')}
