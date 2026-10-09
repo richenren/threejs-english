@@ -1876,3 +1876,13 @@ loading → intro → playing → celebrating → playing
 - ContentEntity 新增 rejectReason、reviewedAt、updatedAt，状态增加 REJECTED；开发环境依靠 JPA schema update，正式部署须补数据库迁移。
 - 前端词表当前使用内存分页，适合 5,000 条以下；后续数据进一步扩大时改用数据库分页/索引和异步导入任务。
 - 当前上传 HTTP 请求执行同步解析和入库，不是异步任务：页面不能离开后续继续导入，失败后重新上传即可利用去重能力重试。
+
+
+## 2026-10-09 V1.3 World / Stage 学习编排
+新增 `frontend/src/game/kitchenWorld.ts` 作为首个主题世界配置。World 与 Activity 解耦：World 负责课程顺序和解锁，Stage 选择 EXPLORE_3D / LISTEN_IMAGE / AUDIO_MATCH / COMMAND_3D / MIXED_CHALLENGE 活动模板。
+- Kitchen World 固定五阶段形成“认识→辨认→反向匹配→指令应用→混合泛化”的学习闭环。
+- Three.js 场景在 Stage 间保持同一视觉世界；卡片活动作为场景上的活动层出现，避免视觉跳离主题。
+- 1-1 探索阶段不写入正确率 AttemptEvent，避免把“看过/点过”误判为掌握；1-2～1-5 每次正确结算继续写 AttemptEvent。
+- AttemptEvent 增加可选 `worldId`、`stageId`、`activityType`，后端当前以 JSON payload 兼容保存，不需要数据库结构迁移。
+- 本机 `localStorage:kid.kitchen-world.progress.v1` 保存 Stage 解锁与最佳星级；正式多儿童版本应迁移为 childId 维度的服务器进度。
+- 后续新增 World 时不得复制 KidPage 状态机，应抽取通用 WorldRunner；本次先完成 Kitchen World 纵切验证课程结构。
