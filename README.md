@@ -22,8 +22,8 @@ cd frontend
 npm install
 npm run dev
 ```
-- 儿童端：http://localhost:5173/kid
-- 家长端：http://localhost:5173/parent
+- 儿童端：http://localhost:6174/kid
+- 家长端：http://localhost:6174/parent
 
 ## 安全注意
 - **真实密钥永远不要提交到 GitHub**。backend/config/application-local.yml 已由根目录 .gitignore 排除。
