@@ -29,13 +29,13 @@ public class BulkContentController {
   int total=0,created=0,skipped=0,failed=0;List<Failure> errors=new ArrayList<>();
   Set<String> known=new HashSet<>();
   contents.findAll().forEach(x->known.add(x.text.trim().toLowerCase(Locale.ROOT)));
-  try(Reader reader=new InputStreamReader(file.getInputStream(),StandardCharsets.UTF_8);
+  try(Reader reader=new java.io.InputStreamReader(new java.io.SequenceInputStream(new java.io.ByteArrayInputStream(new byte[0]),file.getInputStream()),StandardCharsets.UTF_8);
       CSVParser parser=CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).setIgnoreSurroundingSpaces(true).get().parse(reader)){
    var headers=parser.getHeaderMap();
-   if(!headers.containsKey("text")||!headers.containsKey("meaningCn"))throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"CSV requires text,meaningCn headers");
+   if(!headers.containsKey("text")&&!headers.containsKey("\uFEFFtext")||!headers.containsKey("meaningCn"))throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"CSV requires text,meaningCn headers");
    for(var row:parser){
     if(++total>LIMIT)throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Maximum 5000 rows per file");
-    String word=row.isSet("text")?row.get("text").trim():"";
+    String word=row.isSet("text")?row.get("text").trim():row.isSet("\uFEFFtext")?row.get("\uFEFFtext").trim():"";
     String cn=row.isSet("meaningCn")?row.get("meaningCn").trim():"";
     if(word.isBlank()||word.length()>200||cn.length()>500){failed++;errors.add(new Failure("line "+row.getRecordNumber(),"Invalid word or meaning"));continue;}
     String normalized=word.toLowerCase(Locale.ROOT);
