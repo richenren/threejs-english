@@ -1902,3 +1902,11 @@ loading → intro → playing → celebrating → playing
 - Vocabulary Library 的答题继续写 AttemptEvent：worldId=vocabulary-library、stageId=vocab-unit-{n}、activityType=LISTEN_MEANING。
 - Theme World 仍可只消费少量精选词；“是否有主题场景”不再决定一个词能否学习。
 - 场景封面统一放在 `frontend/public/scenes/`，当前 SVG 采用柔和渐变、圆角、阴影和玩具化构图。后续可无代码替换为同路径高质量 WebP/AVIF。
+
+
+## 2026-10-09 V1.6 VocabularyImage 资源降级链
+- 新增 `VocabularyImage.vue` 与 `vocabularyAssets.ts`，所有词汇视觉通过同一资源解析器加载。
+- 文件名由英文词规范化：小写、空格/撇号转连字符、移除其余特殊字符。
+- 候选顺序为 WebP → PNG → JPG → legacy semantic SVG → letter/emoji fallback。
+- 浏览器图片加载失败时组件自动尝试下一候选资源，避免业务页面自己处理 onerror。
+- 正式词汇图片目录为 `frontend/public/vocabulary-assets/`；建议 1:1、WebP、约 50–200 KB/图。
