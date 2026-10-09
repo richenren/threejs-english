@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed,nextTick,onBeforeUnmount,onMounted,ref} from 'vue';
+import {useRouter} from 'vue-router';
 import {KitchenScene} from '../game/KitchenScene';
 import {starterItems,type AttemptEvent,type ContentItem} from '../domain';
 import {db,queueAttempt,syncAttempts} from '../offline/db';
@@ -9,6 +10,7 @@ import {vocabularyImage} from '../assets/vocabulary';
 import {KITCHEN_WORLD_ID,kitchenStages,loadKitchenProgress,saveKitchenProgress,type KitchenProgress} from '../game/kitchenWorld';
 
 type Phase='loading'|'intro'|'playing'|'celebrating'|'complete';
+const router=useRouter();
 const sceneHost=ref<HTMLElement>();const phase=ref<Phase>('loading');const items=ref<ContentItem[]>([]);
 const stageIndex=ref(0);const round=ref(0);const hint=ref<HintLevel>(0);const mistakes=ref(0);const stageStars=ref(0);const earned=ref(0);
 const message=ref('准备好探险了吗？');const soundEnabled=ref(true);const options=ref<ContentItem[]>([]);const selectedAudioKey=ref('');
