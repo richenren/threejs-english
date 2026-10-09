@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref,onMounted,onBeforeUnmount} from 'vue';import {KitchenScene} from '../game/KitchenScene';import {starterItems,type ContentItem,type AttemptEvent} from '../domain';import {queueAttempt,syncAttempts} from '../offline/db';import {nextHint,type HintLevel} from '../game/rules';import {latestPackage} from '../api';import {db} from '../offline/db';
+import {ref,onMounted,onBeforeUnmount} from 'vue';import {vocabularyImage} from '../assets/vocabulary';import {KitchenScene} from '../game/KitchenScene';import {starterItems,type ContentItem,type AttemptEvent} from '../domain';import {queueAttempt,syncAttempts} from '../offline/db';import {nextHint,type HintLevel} from '../game/rules';import {latestPackage} from '../api';import {db} from '../offline/db';
 const container=ref<HTMLElement>();const targets=ref<ContentItem[]>(starterItems);const index=ref(0);const hint=ref<HintLevel>(0);const errors=ref(0);const message=ref('听一听，找到正确的物品');const finished=ref(false);const soundEnabled=ref(true);const sessionId=crypto.randomUUID();let packageVersion='starter-1';let started=performance.now();let kitchen:KitchenScene|undefined;
 const current=()=>targets.value[index.value];
 function speak(){const item=current();if(!item||!soundEnabled.value)return;speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(item.text);utterance.lang='en-US';utterance.rate=.8;speechSynthesis.speak(utterance)}
@@ -43,7 +43,7 @@ function syncNow(){syncAttempts(localStorage.getItem('kidToken')??'').catch(()=>
       <section class="stage-wrap">
         <div class="stage-head"><div><span class="stage-dot"></span><strong>3D 魔法厨房</strong><small>点击桌上的物品，找到正确答案</small></div><span class="live-tag">✧ 自由探索</span></div>
         <div ref="container" class="scene" role="application" aria-label="3D 厨房物品选择区"></div>
-        <div class="stage-foot"><span>👆 点击物品来回答</span><span>✨ 移动鼠标发现惊喜</span></div>
+        <div class="picture-strip"><img v-for="item in targets" :key="item.id" :src="vocabularyImage(item.assetKey)" :alt="item.text" :title="item.text" /></div><div class="stage-foot"><span>👆 点击物品来回答</span><span>✨ 移动鼠标发现惊喜</span></div>
       </section>
 
       <footer class="footer">
@@ -70,4 +70,4 @@ function syncNow(){syncAttempts(localStorage.getItem('kidToken')??'').catch(()=>
 .scene{width:100%;height:clamp(360px,48vh,555px);overflow:hidden;border-radius:18px;background:#d5e7df;position:relative}.stage-foot{justify-content:space-between;color:#8da198;font-size:12px;padding:13px 12px 2px}
 .footer{justify-content:space-between;gap:15px;margin:22px 4px 6px}.footer-text{display:flex;flex-direction:column;gap:5px}.footer-text b{font-size:14px}.footer-text span{color:#97a79d;font-size:12px}.actions{gap:12px}.actions button{border:0;border-radius:15px;font-size:14px;font-weight:800;padding:15px 24px;min-height:51px;box-shadow:0 5px 16px #4b7e5e16;transition:transform .18s}.actions button:hover,.listen-mini:hover{transform:translateY(-2px)}.repeat{background:#79b895;color:white}.hint{background:#fff0cb;color:#ac8043}.dev-note{text-align:center;color:#abb8aa;font-size:11px;margin-top:18px}
 @media(max-width:700px){.shell{padding:12px}.identity h1{font-size:20px}.eyebrow{font-size:8px}.logo{width:43px;height:43px}.topic-tag,.chapter-english,.stage-head small,.live-tag{display:none}.learning{padding:15px}.prompt{gap:12px}.prompt-icon{width:52px;height:52px;font-size:27px}.prompt h2{font-size:31px}.listen-mini{padding:10px;font-size:12px}.scene{height:45vh;min-height:315px}.stage-foot{font-size:10px}.footer{flex-direction:column;align-items:stretch}.actions button{flex:1}.stage-head{padding:7px 9px 11px}}
-</style>
+.picture-strip{display:flex;gap:10px;justify-content:center;padding:14px 8px 4px;flex-wrap:wrap}.picture-strip img{height:65px;width:65px;background:#f1f6ee;object-fit:contain;border-radius:12px;border:1px solid #e2ebe0}@media(max-width:700px){.picture-strip img{height:45px;width:45px}}</style>
