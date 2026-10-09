@@ -19,4 +19,4 @@ ai:
   model: ""
   timeout-seconds: 25
 parent:
-  access-key: ${PARENT_ACCESS_KEY:}
+  access-key: ${PARENT_ACCESS_KEY:123456}
