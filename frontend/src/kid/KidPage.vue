@@ -1,73 +1,199 @@
 <script setup lang="ts">
-import {ref,onMounted,onBeforeUnmount} from 'vue';import {vocabularyImage} from '../assets/vocabulary';import {KitchenScene} from '../game/KitchenScene';import {starterItems,type ContentItem,type AttemptEvent} from '../domain';import {queueAttempt,syncAttempts} from '../offline/db';import {nextHint,type HintLevel} from '../game/rules';import {latestPackage} from '../api';import {db} from '../offline/db';
-const container=ref<HTMLElement>();const targets=ref<ContentItem[]>(starterItems);const index=ref(0);const hint=ref<HintLevel>(0);const errors=ref(0);const message=ref('听一听，找到正确的物品');const finished=ref(false);const soundEnabled=ref(true);const sessionId=crypto.randomUUID();let packageVersion='starter-1';let started=performance.now();let kitchen:KitchenScene|undefined;
-const current=()=>targets.value[index.value];
-function speak(){const item=current();if(!item||!soundEnabled.value)return;speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(item.text);utterance.lang='en-US';utterance.rate=.8;speechSynthesis.speak(utterance)}
-function help(){hint.value=nextHint(hint.value);if(hint.value>=4)message.value='提示：'+current().meaningCn;else if(hint.value>=2)message.value='看看这些物品，再试一次';speak()}
-async function select(key:string){if(finished.value)return;const item=current();if(key!==item.assetKey){errors.value++;hint.value=nextHint(hint.value);message.value='再听一次，试试看';speak();return}
- const event:AttemptEvent={eventId:crypto.randomUUID(),sessionId,contentItemId:item.id,packageVersion,activityVersion:1,firstTryCorrect:errors.value===0,hintLevel:hint.value,semanticErrors:errors.value,responseMs:Math.round(performance.now()-started),occurredAt:new Date().toISOString(),syncStatus:'PENDING'};
- await queueAttempt(event);message.value='太棒了，找对啦！ ✨';if(index.value===targets.value.length-1){finished.value=true;syncAttempts(localStorage.getItem('kidToken')??'').catch(()=>{});return}index.value++;hint.value=0;errors.value=0;started=performance.now();setTimeout(speak,300)}
-onMounted(async()=>{try{const pkg=await latestPackage();await db.packages.put(pkg);const usable=pkg.items.filter(x=>starterItems.some(y=>y.assetKey===x.assetKey));if(usable.length){targets.value=usable;packageVersion=pkg.packageVersion}}catch{const cached=await db.packages.orderBy('publishedAt').last();if(cached){const usable=cached.items.filter(x=>starterItems.some(y=>y.assetKey===x.assetKey));if(usable.length){targets.value=usable;packageVersion=cached.packageVersion}}}if(container.value){kitchen=new KitchenScene(container.value,targets.value);kitchen.onSelect=select}window.addEventListener('online',syncNow);document.addEventListener('visibilitychange',visible)});
-onBeforeUnmount(()=>{kitchen?.dispose();speechSynthesis.cancel();window.removeEventListener('online',syncNow);document.removeEventListener('visibilitychange',visible)});
-function restart(){window.location.reload()}
-function toggleSound(){soundEnabled.value=!soundEnabled.value;if(!soundEnabled.value)speechSynthesis.cancel();}
-function syncNow(){syncAttempts(localStorage.getItem('kidToken')??'').catch(()=>{})}function visible(){if(!document.hidden)syncNow()}
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
+import { KitchenScene } from '../game/KitchenScene';
+import { starterItems, type AttemptEvent, type ContentItem } from '../domain';
+import { db, queueAttempt, syncAttempts } from '../offline/db';
+import { latestPackage } from '../api';
+import { nextHint, type HintLevel } from '../game/rules';
+import { vocabularyImage } from '../assets/vocabulary';
+
+type Phase = 'loading' | 'intro' | 'playing' | 'celebrating' | 'complete';
+const sceneHost = ref<HTMLElement>();
+const phase = ref<Phase>('loading');
+const items = ref<ContentItem[]>([]);
+const round = ref(0);
+const hint = ref<HintLevel>(0);
+const mistakes = ref(0);
+const stars = ref(0);
+const earned = ref(0);
+const message = ref('准备好探险了吗？');
+const soundEnabled = ref(true);
+const sessionId = crypto.randomUUID();
+const canPlay = computed(() => phase.value === 'playing');
+const current = computed(() => items.value[round.value]);
+const progress = computed(() => items.value.length ? (phase.value === 'complete' ? 100 : round.value / items.value.length * 100) : 0);
+let scene: KitchenScene | undefined;
+let packageVersion = 'starter-1';
+let started = 0;
+let advanceTimer: ReturnType<typeof setTimeout> | undefined;
+let speakingTimer: ReturnType<typeof setTimeout> | undefined;
+
+function speak(text = current.value?.text ?? '') {
+  if (!soundEnabled.value || !text || !('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US'; utterance.rate = .82; utterance.pitch = 1.07;
+  window.speechSynthesis.speak(utterance);
+}
+function toggleSound() {
+  soundEnabled.value = !soundEnabled.value;
+  if (!soundEnabled.value) window.speechSynthesis?.cancel();
+}
+function resetRound() {
+  hint.value = 0; mistakes.value = 0; earned.value = 0;
+  message.value = '仔细听，点击厨房里对应的物品！';
+  started = performance.now();
+  phase.value = 'playing';
+  speakingTimer = setTimeout(() => speak(), 300);
+}
+function startAdventure() {
+  if (!items.value.length) return;
+  stars.value = 0; round.value = 0;
+  resetRound();
+}
+function again() { startAdventure(); }
+function help() {
+  if (!canPlay.value) return;
+  hint.value = nextHint(hint.value);
+  message.value = hint.value >= 4
+    ? '小提示：它的中文是「' + current.value.meaningCn + '」'
+    : hint.value >= 2 ? '仔细看看桌上的物品，再听一次！' : '跟着小伙伴再听一次吧！';
+  speak();
+}
+async function onPick(assetKey: string) {
+  if (!canPlay.value || !current.value) return;
+  const target = current.value;
+  if (assetKey !== target.assetKey) {
+    mistakes.value += 1;
+    hint.value = nextHint(hint.value);
+    message.value = mistakes.value >= 2 ? '没关系，再观察一下，试试别的物品！' : '差一点点！再试一次～';
+    speak();
+    return;
+  }
+  phase.value = 'celebrating';
+  earned.value = mistakes.value === 0 && hint.value === 0 ? 3 : mistakes.value <= 1 && hint.value <= 2 ? 2 : 1;
+  stars.value += earned.value;
+  scene?.celebrate(assetKey);
+  message.value = earned.value === 3 ? '太厉害啦！一次就找对了！' : '找到了！继续加油！';
+  const event: AttemptEvent = {
+    eventId: crypto.randomUUID(), sessionId, contentItemId: target.id, packageVersion,
+    activityVersion: 2, firstTryCorrect: mistakes.value === 0,
+    semanticErrors: mistakes.value, hintLevel: hint.value,
+    responseMs: Math.round(performance.now() - started),
+    occurredAt: new Date().toISOString(), syncStatus: 'PENDING',
+  };
+  try { await queueAttempt(event); } catch (e) { console.error('保存学习记录失败', e); }
+  advanceTimer = setTimeout(() => {
+    if (round.value + 1 === items.value.length) {
+      phase.value = 'complete';
+      message.value = '全部任务完成！你是今天的探险小明星！';
+      syncNow();
+    } else {
+      round.value += 1;
+      resetRound();
+    }
+  }, 1700);
+}
+function syncNow() {
+  syncAttempts(localStorage.getItem('kidToken') ?? '').catch(() => {});
+}
+function visible() { if (!document.hidden) syncNow(); }
+async function init() {
+  let candidates = starterItems;
+  try {
+    const pkg = await latestPackage();
+    await db.packages.put(pkg);
+    packageVersion = pkg.packageVersion;
+    candidates = pkg.items;
+  } catch {
+    try {
+      const cached = await db.packages.orderBy('publishedAt').last();
+      if (cached) { packageVersion = cached.packageVersion; candidates = cached.items; }
+    } catch { /* IndexedDB may be disabled; bundled content still works */ }
+  }
+  const keys = new Set(starterItems.map(item => item.assetKey));
+  const used = new Set<string>();
+  items.value = candidates.filter(item => {
+    if (!keys.has(item.assetKey) || used.has(item.assetKey)) return false;
+    used.add(item.assetKey); return true;
+  }).slice(0, 5);
+  if (!items.value.length) items.value = starterItems;
+  await nextTick();
+  if (!sceneHost.value) return;
+  try {
+    scene = new KitchenScene(sceneHost.value, items.value);
+    scene.onSelect = onPick;
+    phase.value = 'intro';
+  } catch (e) {
+    console.error('无法加载 Three.js 场景', e);
+    message.value = '3D 场景加载失败，请检查浏览器 WebGL 支持';
+  }
+}
+onMounted(() => {
+  void init();
+  window.addEventListener('online', syncNow);
+  document.addEventListener('visibilitychange', visible);
+});
+onBeforeUnmount(() => {
+  if (advanceTimer) clearTimeout(advanceTimer);
+  if (speakingTimer) clearTimeout(speakingTimer);
+  scene?.dispose(); window.speechSynthesis?.cancel();
+  window.removeEventListener('online', syncNow);
+  document.removeEventListener('visibilitychange', visible);
+});
 </script>
+
 <template>
-  <main class="kid">
-    <div class="shell">
-      <header class="topbar">
-        <div class="identity">
-          <div class="logo">✦</div>
-          <div><span class="eyebrow">LITTLE EXPLORERS · 3D ENGLISH</span><h1>奇妙英语厨房 <span>🍓</span></h1></div>
-        </div>
-        <div class="header-actions">
-          <span class="topic-tag">🏡 我的厨房</span>
-          <button class="sound-toggle" @click="toggleSound" :aria-label="soundEnabled?'关闭声音':'打开声音'">{{soundEnabled?'🔊':'🔇'}}</button>
-        </div>
+  <main class="adventure">
+    <div class="page">
+      <header class="game-header">
+        <div class="brand"><div class="brand-icon">✨</div><div><small>3D ENGLISH ADVENTURE</small><h1>奇妙英语小世界</h1></div></div>
+        <div class="header-tools"><span class="chapter-chip">🏡 第一站 · 魔法厨房</span><button class="icon-button" @click="toggleSound" :aria-label="soundEnabled?'静音':'开启语音'">{{ soundEnabled?'🔊':'🔇' }}</button></div>
       </header>
 
-      <section class="learning">
-        <div class="learning-top">
-          <div class="chapter">🌟 今日探险 <span>·</span> 第 1 关 <span class="chapter-english">KITCHEN ADVENTURE</span></div>
-          <div class="count"><b>{{Math.min(index+1,targets.length)}}</b> / {{targets.length}}</div>
-        </div>
-        <div class="progress"><div class="progress-fill" :style="{width:((finished?targets.length:index)/targets.length*100)+'%'}"></div></div>
-        <div class="prompt">
-          <div class="prompt-icon">🎧</div>
-          <div class="prompt-copy"><span class="prompt-caption">{{finished?'恭喜你完成挑战！':'听一听 · 找一找 · 点一点'}}</span><h2>{{finished?'你是厨房小达人！':current().text}}</h2><p>{{finished?'今天学得真棒，明天再来探索吧！':message}}</p></div>
-          <button v-if="!finished" class="listen-mini" @click="speak">▶ 听发音</button>
-        </div>
+      <section class="quest-bar" aria-label="关卡进度">
+        <div class="quest-label"><span>🗺️ 厨房寻宝大冒险</span><span>⭐ {{ stars }} 星 <b>{{ phase==='complete'?items.length:Math.min(round+1,items.length) }}/{{ items.length }}</b></span></div>
+        <div class="progress"><div :style="{width:progress+'%'}"></div></div>
+        <div class="map-nodes"><span v-for="(item,i) in items" :key="item.id" :class="{done:i<round||phase==='complete',active:i===round&&phase!=='complete'}">{{ i<round||phase==='complete'?'★':i+1 }}</span></div>
       </section>
 
-      <section class="stage-wrap">
-        <div class="stage-head"><div><span class="stage-dot"></span><strong>3D 魔法厨房</strong><small>点击桌上的物品，找到正确答案</small></div><span class="live-tag">✧ 自由探索</span></div>
-        <div ref="container" class="scene" role="application" aria-label="3D 厨房物品选择区"></div>
-        <div class="picture-strip"><img v-for="item in targets" :key="item.id" :src="vocabularyImage(item.assetKey)" :alt="item.text" :title="item.text" /></div><div class="stage-foot"><span>👆 点击物品来回答</span><span>✨ 移动鼠标发现惊喜</span></div>
+      <section class="game-board">
+        <div class="stage" ref="sceneHost" role="application" aria-label="三维魔法厨房，点击厨房物品完成关卡"></div>
+        <div class="scene-label">✧ 3D 魔法厨房 <span>轻点桌上的物品进行互动</span></div>
+
+        <div v-if="phase==='intro'" class="overlay">
+          <div class="overlay-card intro-card"><div class="mascot-face">🐰</div><span class="eyebrow">WELCOME, LITTLE EXPLORER!</span><h2>和乐乐一起寻找宝物！</h2><p>听听英语，看看厨房里藏着什么。点击正确的物品，就能收集小星星！</p><button class="primary" @click="startAdventure">🚀 开始探险</button></div>
+        </div>
+        <div v-if="phase==='complete'" class="overlay">
+          <div class="overlay-card win-card"><div class="confetti">✨ 🎉 ✨</div><h2>闯关成功！</h2><p>你已经找到全部 {{ items.length }} 件宝物啦！</p><div class="big-stars">⭐ {{ stars }} <small>/ {{ items.length*3 }}</small></div><div class="rewards"><span>🏆 厨房小勇士</span><span>🌈 勇敢尝试奖</span></div><button class="primary" @click="again">再挑战一次 ↻</button></div>
+        </div>
+        <div v-if="phase==='celebrating'" class="celebration" role="status">⭐ +{{ earned }} <span>太棒啦！</span></div>
       </section>
 
-      <footer class="footer">
-        <div class="footer-text"><b>每一次尝试，都值得鼓励！</b><span>慢慢来，你一定可以 💛</span></div>
-        <div class="actions" v-if="!finished"><button class="repeat" @click="speak">🔊 再听一次</button><button class="hint" @click="help">💡 给我提示</button></div>
-        <div class="actions" v-else><button class="repeat" @click="restart">✨ 再玩一次</button></div>
-      </footer>
-      <p class="dev-note">当前使用浏览器语音朗读 · 学习记录保存于本地设备</p>
+      <section class="coach">
+        <div class="coach-avatar">🐰<span>向导乐乐</span></div>
+        <div class="speech">
+          <span class="eyebrow">{{ phase==='intro'?'HELLO!':phase==='complete'?'YOU DID IT!':'LISTEN & FIND' }}</span>
+          <h2>{{ phase==='intro'?'准备好了吗？':phase==='complete'?'今天的探险完成啦！':current?.text }}</h2>
+          <p>{{ message }}</p>
+        </div>
+        <div class="controls" v-if="phase==='playing'">
+          <button class="sound-button" @click="speak()">🔊 再听一次</button>
+          <button class="hint-button" @click="help">💡 给我提示</button>
+        </div>
+        <button v-else-if="phase==='celebrating'" class="sound-button" disabled>✨ 正在收集星星…</button>
+      </section>
+
+      <div class="bottom-note"><span>🎮 听音找物 · 点击互动 · 通关奖励</span><span>家长提示：此版本使用浏览器英语语音</span></div>
     </div>
   </main>
 </template>
+
 <style scoped>
-.kid{min-height:100vh;background:radial-gradient(ellipse 70% 38% at 85% 0%,#dcf0e7 0%,transparent 78%),linear-gradient(145deg,#fbf8f0,#f6f4eb 60%,#eaf2e9);color:#324a40}
-.shell{max-width:1160px;margin:auto;padding:25px 24px 18px}
-.topbar,.identity,.header-actions,.learning-top,.stage-head,.stage-head>div,.stage-foot,.footer,.actions{display:flex;align-items:center}
-.topbar{justify-content:space-between;margin-bottom:22px;gap:12px}.identity{gap:13px}.logo{width:54px;height:54px;display:grid;place-items:center;background:#78ab8b;color:white;border-radius:18px;font-size:28px;box-shadow:0 8px 25px #8fbc9b66}
-.eyebrow,.chapter-english{font-size:10px;font-weight:800;letter-spacing:2px;color:#90a69b}.identity h1{font-size:26px;line-height:1.2;margin:5px 0;font-weight:850;letter-spacing:.5px}
-.header-actions{gap:12px}.topic-tag{border:1px solid #d8e8dc;background:#fffef9;border-radius:20px;padding:10px 15px;font-size:13px;color:#6f9480;font-weight:700}.sound-toggle{border:0;background:#fff;border-radius:15px;font-size:20px;height:44px;width:46px;box-shadow:0 3px 14px #355f4112}
-.learning{background:#fffefa;border:1px solid #edf0e6;border-radius:23px;padding:18px 25px 18px;box-shadow:0 7px 25px #5264440a;margin-bottom:16px}
-.learning-top{justify-content:space-between;margin-bottom:11px}.chapter{font-size:13px;font-weight:750;color:#82a78d}.chapter span{margin:0 7px}.count{font-size:14px;color:#849b8c}.count b{color:#498362;font-size:20px}.progress{height:7px;border-radius:20px;background:#e8f2e7;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,#8cc99d,#e6c771);border-radius:20px;transition:width .3s}
-.prompt{display:flex;gap:18px;align-items:center;padding:18px 1px 2px}.prompt-icon{font-size:35px;background:#eaf4eb;border-radius:18px;width:66px;height:66px;display:grid;place-items:center}.prompt-copy{flex:1}.prompt-caption{font-weight:700;letter-spacing:1px;color:#98a89b;font-size:12px}.prompt h2{font-size:38px;color:#416b52;line-height:1.2;margin:4px 0 3px;letter-spacing:.5px}.prompt p{color:#8a9b8d;font-size:13px;margin:0}.listen-mini{border:0;background:#e4f1e6;color:#578469;font-weight:800;padding:13px 18px;border-radius:14px}
-.stage-wrap{background:#fffefb;border:1px solid #e3eae1;border-radius:26px;padding:12px;box-shadow:0 15px 45px #58776418}
-.stage-head{justify-content:space-between;padding:8px 12px 15px}.stage-head>div{gap:11px}.stage-dot{width:10px;height:10px;border-radius:50%;background:#7ec29a;box-shadow:0 0 0 5px #dcf1e2}.stage-head strong{font-size:15px}.stage-head small{font-size:12px;color:#9caea2}.live-tag{font-size:12px;font-weight:750;color:#87a38f;background:#edf6ed;border-radius:20px;padding:7px 12px}
-.scene{width:100%;height:clamp(360px,48vh,555px);overflow:hidden;border-radius:18px;background:#d5e7df;position:relative}.stage-foot{justify-content:space-between;color:#8da198;font-size:12px;padding:13px 12px 2px}
-.footer{justify-content:space-between;gap:15px;margin:22px 4px 6px}.footer-text{display:flex;flex-direction:column;gap:5px}.footer-text b{font-size:14px}.footer-text span{color:#97a79d;font-size:12px}.actions{gap:12px}.actions button{border:0;border-radius:15px;font-size:14px;font-weight:800;padding:15px 24px;min-height:51px;box-shadow:0 5px 16px #4b7e5e16;transition:transform .18s}.actions button:hover,.listen-mini:hover{transform:translateY(-2px)}.repeat{background:#79b895;color:white}.hint{background:#fff0cb;color:#ac8043}.dev-note{text-align:center;color:#abb8aa;font-size:11px;margin-top:18px}
-@media(max-width:700px){.shell{padding:12px}.identity h1{font-size:20px}.eyebrow{font-size:8px}.logo{width:43px;height:43px}.topic-tag,.chapter-english,.stage-head small,.live-tag{display:none}.learning{padding:15px}.prompt{gap:12px}.prompt-icon{width:52px;height:52px;font-size:27px}.prompt h2{font-size:31px}.listen-mini{padding:10px;font-size:12px}.scene{height:45vh;min-height:315px}.stage-foot{font-size:10px}.footer{flex-direction:column;align-items:stretch}.actions button{flex:1}.stage-head{padding:7px 9px 11px}}
-.picture-strip{display:flex;gap:10px;justify-content:center;padding:14px 8px 4px;flex-wrap:wrap}.picture-strip img{height:65px;width:65px;background:#f1f6ee;object-fit:contain;border-radius:12px;border:1px solid #e2ebe0}@media(max-width:700px){.picture-strip img{height:45px;width:45px}}</style>
+.adventure{min-height:100vh;background:radial-gradient(circle at 13% 6%,#ffeed4 0%,transparent 27%),radial-gradient(circle at 89% 7%,#d2f5f2 0%,transparent 29%),#f1f7ff;color:#304462;font-family:system-ui,"Microsoft YaHei",sans-serif}.page{max-width:1180px;margin:auto;padding:20px 24px 32px}
+.game-header,.brand,.header-tools,.quest-label,.map-nodes,.coach,.controls,.bottom-note{display:flex;align-items:center}.game-header{justify-content:space-between;gap:20px;margin-bottom:16px}.brand{gap:13px}.brand-icon{font-size:32px;background:#fff;border-radius:20px;padding:13px;box-shadow:0 5px 0 #dfdfef}.brand small,.eyebrow{font-size:11px;letter-spacing:1.5px;color:#8882c1;font-weight:850}.brand h1{margin:1px 0;font-size:25px;color:#544698}.header-tools{gap:12px}.chapter-chip{background:#fff;padding:12px 16px;border-radius:18px;font-weight:800;color:#6d6ac0}.icon-button{background:#fff;border:0;border-radius:16px;padding:12px;font-size:23px;cursor:pointer}
+.quest-bar{background:white;border:3px solid #fff;border-radius:23px;padding:15px 22px;margin-bottom:14px;box-shadow:0 9px 23px #8f9fc528}.quest-label{justify-content:space-between;font-weight:850;font-size:15px;gap:15px}.quest-label b{margin-left:9px;color:#806bd6}.progress{height:12px;background:#e8e8ff;border-radius:20px;margin:12px 0;overflow:hidden}.progress>div{height:100%;border-radius:20px;background:linear-gradient(90deg,#7fdbbb,#f8cb5a);transition:width .5s}.map-nodes{justify-content:space-around;gap:8px}.map-nodes span{background:#ebeff9;color:#8b93ab;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:850}.map-nodes .active{background:#a394ff;color:white;box-shadow:0 0 0 4px #e9e4ff}.map-nodes .done{background:#ffd46e;color:#b76e25}
+.game-board{position:relative;overflow:hidden;border:8px solid white;border-radius:30px;box-shadow:0 12px 0 #d6ddef,0 25px 50px #7d8fb34a;background:#d5ece4}.stage{height:clamp(350px,49vh,590px);width:100%}.scene-label{position:absolute;top:17px;left:17px;border-radius:14px;padding:10px 15px;background:#ffffffdb;color:#59778e;font-weight:850;font-size:13px;pointer-events:none}.scene-label span{font-size:11px;margin-left:10px;font-weight:500}.overlay{position:absolute;inset:0;background:#30305b56;display:grid;place-items:center;padding:18px;z-index:2}.overlay-card{width:min(430px,100%);box-sizing:border-box;background:#fffefa;border:5px solid #fff4d1;text-align:center;padding:27px 31px;border-radius:30px;box-shadow:0 12px 0 #d39bc2,0 23px 48px #45436455}.mascot-face{font-size:65px}.overlay h2{font-size:29px;margin:10px 0;color:#6552ab}.overlay p{color:#697489;line-height:1.8;margin:8px 0 19px}.primary{border:0;background:linear-gradient(180deg,#ffc96d,#f49a54);border-bottom:6px solid #d17935;color:#603d20;font-size:20px;font-weight:900;padding:16px 40px;border-radius:21px;cursor:pointer}.confetti{font-size:33px}.big-stars{font-size:38px;font-weight:900;color:#d6903b}.big-stars small{font-size:16px;color:#b1a88d}.rewards{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}.rewards span{background:#fff1c8;padding:10px 13px;border-radius:13px;color:#94662b;font-size:12px;font-weight:800}.celebration{position:absolute;z-index:2;top:30%;left:50%;transform:translateX(-50%);background:#fff6c8;color:#dc8a29;font-size:42px;font-weight:950;padding:15px 30px;border-radius:26px;box-shadow:0 9px 0 #f9c75f;animation:pop .5s ease-out}.celebration span{font-size:20px;display:block;text-align:center}@keyframes pop{from{opacity:0;transform:translate(-50%,30px) scale(.7)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+.coach{gap:18px;margin-top:28px;background:white;border:4px solid #fff;border-radius:26px;padding:17px 21px;box-shadow:0 7px 0 #e1e4f3}.coach-avatar{font-size:55px;display:flex;flex-direction:column;align-items:center;background:#fef1d4;border-radius:19px;padding:10px;min-width:75px}.coach-avatar span{font-size:10px;color:#b78c49;font-weight:800}.speech{flex:1}.speech h2{font-size:31px;margin:2px 0;color:#6551ad}.speech p{font-size:13px;color:#8b93a0;margin:5px 0}.controls{gap:10px;flex-wrap:wrap}.controls button,.coach>button{border:0;border-radius:15px;font-weight:900;font-size:14px;padding:16px;cursor:pointer}.sound-button{background:#8f74e0;color:white;box-shadow:0 5px 0 #6757b7}.hint-button{background:#ffe4a4;color:#9b7137;box-shadow:0 5px 0 #deb879}button:disabled{opacity:.6;cursor:not-allowed}.bottom-note{justify-content:space-between;color:#929bb1;font-size:11px;padding:18px 5px}
+@media(max-width:720px){.page{padding:10px 11px 25px}.game-header{margin-bottom:10px}.brand h1{font-size:19px}.brand-icon{font-size:24px;padding:9px}.chapter-chip{display:none}.quest-bar{padding:12px}.quest-label{font-size:12px}.stage{height:clamp(340px,48vh,490px)}.scene-label span{display:none}.coach{gap:9px;padding:12px;margin-top:23px;flex-wrap:wrap}.coach-avatar{font-size:37px;min-width:52px}.speech h2{font-size:24px}.controls{width:100%}.controls button{flex:1}.bottom-note{flex-direction:column;gap:6px}.overlay-card{padding:18px}.overlay h2{font-size:23px}}
+</style>

@@ -1827,3 +1827,44 @@ docs/kids-3d-english-technical-design.md。
 - [Capacitor Documentation](https://capacitorjs.com/docs)
 - [Dexie StorageManager](https://dexie.org/docs/StorageManager)
 
+
+
+---
+
+## 2026-10-09 V1.1 增补：3D 游戏化纵切架构
+
+### ADR-006：原创程序化视觉先行，模型资产可替换
+- 当前引擎为 Three.js + WebGL；场景由 KitchenScene 构建，包含独立角色 Group、可交互物品 Group、光照、阴影与相机。
+- Scene 通过 onSelect(assetKey) 事件将用户点击交给 Vue 关卡控制器；不得在 Three.js 场景内写学习记录或直接请求后端。
+- 正确作答调用 scene.celebrate(assetKey)；3D 反馈只影响画面表现。
+- 所有模型经语义 assetKey 索引；替换 GLB 资源时不得修改 AttemptEvent、学习包版本协议。
+- 后续引入模型资源必须检查授权、大小、材质、动画、离线缓存策略与性能预算。
+- 原创向导为程序化角色，后续采用 glTF/GLB + AnimationMixer 可升级为骨骼动作。
+
+### 儿童端状态机
+```text
+loading → intro → playing → celebrating → playing
+                               └→ complete → playing (新的一局)
+```
+- loading: 加载最新学习包，失败则本地缓存，再失败则内置示例。
+- intro: 3D 场景可见但禁止计分与答题，等待用户启动。
+- playing: 当前题接收点击、计错误数、更新提示等级。
+- celebrating: 封锁点击，单次写入带唯一 eventId 的学习事件，显示 1-3 星并触发 3D 动画。
+- complete: 汇总本轮星星，向用户展示重玩选项。
+- 卸载组件时移除监听器并清理 requestAnimationFrame、WebGL 材质和过渡定时器。
+
+### 数据协议保持兼容
+- AttemptEvent 保持 eventId、sessionId、contentItemId、packageVersion、activityVersion、firstTryCorrect、semanticErrors、hintLevel、responseMs、occurredAt、syncStatus 字段。
+- 新关卡活动使用 activityVersion=2；与旧版记录并存。
+- 星星在界面派生计算，目前仅本局内存状态，不写入数据库。
+- 后端内容审核、不可变学习包与 AI Provider 不受游戏化 UI 影响。
+- 只加载具备已知资产映射的词条；不对未知 assetKey 生成可点击的“占位正确答案”。
+
+### 质量门槛
+- GitHub Actions 的 TypeScript 构建与后端单测必须通过。
+- 增加浏览器端 E2E：开始游戏、错误答案不跳题、正确答案进入下一题、全部通关、重新开始新 session。
+- 对低性能安卓设备提供像素比例/阴影质量降低选项；WebGL 丢失需提供用户可理解的错误提示。
+- 生产前完成儿童同步鉴权、家长账户认证和数据库迁移，禁止暴露目前的开发服务到公网。
+
+### 未交付事项
+授权高质量 GLB 模型、角色骨骼动画与音效、真实关卡地图、多场景复用、设备同步和正式性能/E2E 测试，仍属于后续工作。
