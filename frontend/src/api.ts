@@ -18,6 +18,7 @@ export const parentApi={
  },
  batch:(input:{ids:string[];action:'REVIEW'|'APPROVE'|'REJECT';reason?:string;status?:string;search?:string;allFiltered:boolean})=>
    api<BulkResult>('/parent/content/batch-transition',{method:'POST',body:JSON.stringify(input)},true),
+ activateCommon2000:()=>api<{total:number;created:number;approved:number;alreadyReady:number;failed:number;failures:string[]}>('/parent/content/builtin/common-2000/activate',{method:'POST'},true),
  list:()=>api<ContentItem[]>('/parent/content',{},true),
  create:(item:Pick<ContentItem,'text'|'meaningCn'|'type'|'assetKey'>)=>api<ContentItem>('/parent/content',{method:'POST',body:JSON.stringify(item)},true),
  update:(id:string,item:Pick<ContentItem,'text'|'meaningCn'|'type'|'assetKey'>)=>api<ContentItem>('/parent/content/'+id,{method:'PUT',body:JSON.stringify(item)},true),

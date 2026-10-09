@@ -2,6 +2,8 @@ import { createApp, h } from 'vue';
 import { createRouter, createWebHistory, RouterView } from 'vue-router';
 import { createPinia } from 'pinia';
 import KidPage from './kid/KidPage.vue';
+import WorldMapPage from './kid/WorldMapPage.vue';
+import ThemeWorldPage from './kid/ThemeWorldPage.vue';
 import ParentPage from './parent/ParentPage.vue';
 import './style.css';
 
@@ -9,7 +11,9 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', redirect: '/kid' },
-    { path: '/kid', component: KidPage },
+    { path: '/kid', component: WorldMapPage },
+    { path: '/kid/world/kitchen', component: KidPage },
+    { path: '/kid/world/:worldId', component: ThemeWorldPage },
     { path: '/parent', component: ParentPage },
   ],
 });

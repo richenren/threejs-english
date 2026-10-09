@@ -1886,3 +1886,11 @@ loading → intro → playing → celebrating → playing
 - AttemptEvent 增加可选 `worldId`、`stageId`、`activityType`，后端当前以 JSON payload 兼容保存，不需要数据库结构迁移。
 - 本机 `localStorage:kid.kitchen-world.progress.v1` 保存 Stage 解锁与最佳星级；正式多儿童版本应迁移为 childId 维度的服务器进度。
 - 后续新增 World 时不得复制 KidPage 状态机，应抽取通用 WorldRunner；本次先完成 Kitchen World 纵切验证课程结构。
+
+
+## 2026-10-09 V1.4 World Map 与内置词包
+- `/kid` 为 WorldMapPage；`/kid/world/kitchen` 运行原 Kitchen World；`/kid/world/:worldId` 运行 ThemeWorldPage。
+- `worldCatalog.ts` 描述 Home / Animal / School 的主题、五阶段活动和兜底词汇，按上一世界 completed 状态顺序解锁。
+- ThemeWorldPage 复用 DISCOVER_CARDS / LISTEN_IMAGE / AUDIO_MATCH / COMMAND_IMAGE / MIXED_CHALLENGE 五阶段模型；当前采用 Emoji 作为无正式图片时的功能占位，后续素材资源优先覆盖，不修改课程结构。
+- 内置词包资源位于 classpath `vocabulary/common-english-2000.csv`，由 BuiltinVocabularyController 幂等激活。已存在的非 READY 词条会批准为 READY；已 READY 的不重复创建。
+- CSV 同时暴露在前端 `/data/common-english-2000.csv` 便于下载；第三方数据许可证记录在 `data/THIRD_PARTY_NOTICES.md`。
