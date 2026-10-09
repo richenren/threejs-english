@@ -1,8 +1,26 @@
 <script setup lang="ts">
-import {ref,onMounted} from 'vue';
+import {ref,onMounted,computed,watch} from 'vue';
 import {parentApi} from '../api';import type {ContentItem} from '../domain';import {vocabularyImage} from '../assets/vocabulary';
 const items=ref<ContentItem[]>([]);const text=ref('');const meaning=ref('');const assetKey=ref('');const error=ref('');const busy=ref(false);const feedback=ref('');const suggestion=ref('');const key=ref(sessionStorage.getItem('parentAccessKey')||'');
 const importState=ref({active:false,total:0,processed:0,created:0,skipped:0,failed:0,errors:[] as string[]});
+const filter=ref('ALL');const search=ref('');const pageNo=ref(1);const pageSize=50;const selected=ref<string[]>([]);const allFiltered=ref(false);const rejectReason=ref('');
+const filtered=computed(()=>items.value.filter(x=>(filter.value==='ALL'||x.status===filter.value)&&(!search.value||x.text.toLowerCase().includes(search.value.trim().toLowerCase())||x.meaningCn?.includes(search.value.trim()))));
+const pages=computed(()=>Math.max(1,Math.ceil(filtered.value.length/pageSize)));
+const visible=computed(()=>filtered.value.slice((pageNo.value-1)*pageSize,pageNo.value*pageSize));
+const selectedCount=computed(()=>allFiltered.value?filtered.value.length:selected.value.length);
+watch([filter,search],()=>{pageNo.value=1;selected.value=[];allFiltered.value=false});
+function toggleCurrent(checked:boolean){const ids=visible.value.map(x=>x.id);selected.value=checked?Array.from(new Set([...selected.value,...ids])):selected.value.filter(id=>!ids.includes(id));allFiltered.value=false}
+async function batch(action:'REVIEW'|'APPROVE'|'REJECT'){
+ if(!selectedCount.value)return;
+ if(action==='REJECT'&&!rejectReason.value.trim()){error.value='请先填写驳回原因';return}
+ if(!confirm('确认对 '+selectedCount.value+' 个词条执行批量操作吗？'))return;
+ await run(async()=>{
+  const result=await parentApi.batch({ids:selected.value,action,reason:rejectReason.value,status:filter.value,search:search.value,allFiltered:allFiltered.value});
+  feedback.value='成功 '+result.succeeded+' 条，失败 '+result.failed+' 条';
+  if(result.failed)error.value=result.failures.slice(0,5).map(x=>x.id+': '+x.reason).join('；');
+  selected.value=[];allFiltered.value=false;
+ },'批量处理完成');
+}
 const assets=['','food.apple','food.banana','food.bread','tableware.cup','tableware.plate'];
 function saveKey(){sessionStorage.setItem('parentAccessKey',key.value);refresh()}
 async function run(task:()=>Promise<any>,success:string){busy.value=true;error.value='';try{await task();feedback.value=success;await refresh()}catch(e){error.value=(e as Error).message}finally{busy.value=false}}
@@ -12,46 +30,29 @@ async function generate(){if(!text.value.trim())return;await run(async()=>{const
 async function transition(item:ContentItem,action:'review'|'approve'){await run(()=>parentApi.transition(item.id,action),action==='review'?'已提交人工审核':'已人工批准')}
 async function edit(item:ContentItem){await run(()=>parentApi.update(item.id,{text:item.text,meaningCn:item.meaningCn,type:item.type,assetKey:item.assetKey}),'已保存修改，审核状态重置')}
 async function publish(){if(!confirm('将所有已批准词条发布为新的不可变版本，继续吗？'))return;await run(async()=>{const p=await parentApi.publish();feedback.value='发布成功 '+p.packageVersion+'，共 '+p.itemCount+' 条'},'发布成功')}
-async function importCsv(e:Event){
- const input=e.target as HTMLInputElement;
- const file=input.files?.[0];if(!file)return;
+async function importCsv(event:Event){
+ const input=event.target as HTMLInputElement;const file=input.files?.[0];if(!file)return;
  importState.value={active:true,total:0,processed:0,created:0,skipped:0,failed:0,errors:[]};
- const state=importState.value;
- error.value='';feedback.value='正在读取 '+file.name+' …';busy.value=true;
+ busy.value=true;error.value='';feedback.value='正在上传并导入 '+file.name;
  try{
-  if(!key.value.trim())throw new Error('请先填写家长访问密钥并点击“保存并连接”');
-  const lines=(await file.text()).replace(/^\uFEFF/,'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
-  if(!lines.length||lines[0].replace(/\s/g,'').toLowerCase()!=='text,meaningcn')throw new Error('CSV 表头必须是 text,meaningCn');
-  const rows=lines.slice(1).map((line,i)=>({line:i+2,parts:line.split(',')})).filter(x=>x.parts[0]?.trim());
-  state.total=rows.length;
-  const existing=await parentApi.list();
-  const seen=new Set(existing.map(x=>x.text.trim().toLowerCase()));
-  for(const row of rows){
-   const word=row.parts[0].trim(),meaningCn=row.parts.slice(1).join(',').trim();
-   if(seen.has(word.toLowerCase())){state.skipped++;state.processed++;continue}
-   try{
-    await parentApi.create({text:word,meaningCn,type:'WORD',assetKey:''});
-    state.created++;seen.add(word.toLowerCase());
-   }catch(err){
-    const msg=(err as Error).message;
-    if(/409|duplicate|conflict/i.test(msg)){state.skipped++;seen.add(word.toLowerCase())}
-    else {state.failed++;state.errors.push('第'+row.line+'行 '+word+'：'+msg);if(/401|403|unauthor/i.test(msg))break}
-   }
-   state.processed++;
-  }
+  const r=await parentApi.importCsv(file);
+  importState.value={active:false,total:r.total,processed:r.total,created:r.succeeded,skipped:r.skipped,failed:r.failed,errors:r.failures.map(x=>x.id+': '+x.reason)};
+  feedback.value='新增 '+r.succeeded+'，跳过重复 '+r.skipped+'，失败 '+r.failed;
+  if(r.failures.length)error.value=r.failures.slice(0,8).map(x=>x.id+': '+x.reason).join('；');
   await refresh();
-  feedback.value='导入结束：新增 '+state.created+' 条，跳过重复 '+state.skipped+' 条，失败 '+state.failed+' 条';
-  if(state.errors.length)error.value=state.errors.slice(0,5).join('；');
- }catch(err){error.value=(err as Error).message;feedback.value='导入未完成'}
- finally{state.active=false;busy.value=false;input.value=''}
+ }catch(err){error.value=(err as Error).message;feedback.value='导入失败';}
+ finally{busy.value=false;importState.value.active=false;input.value=''}
 }
 onMounted(refresh);
 </script>
 <template><main class="parent"><header class="hero"><div><span class="section-eyebrow">LITTLE EXPLORERS · FAMILY DASHBOARD</span><h1>🌈 家长学习中心</h1><p>给孩子准备每天的小小英语冒险</p></div><router-link class="kid-link" to="/kid">🚀 进入儿童 3D 厨房 →</router-link></header><div class="stats"><div><strong>{{items.length}}</strong><span>词条总数</span></div><div><strong>{{items.filter(x=>x.status==='READY').length}}</strong><span>已批准词条</span></div><div><strong>{{items.filter(x=>x.status==='DRAFT').length}}</strong><span>待完善草稿</span></div></div>
 <section><h2>访问密钥</h2><p>服务端需要配置 PARENT_ACCESS_KEY。密钥只保存在当前浏览器会话。</p><input type="password" v-model="key" placeholder="家长管理密钥"/><button @click="saveKey">保存并连接</button></section>
 <section><h2>添加学习内容</h2><div class="form"><input v-model="text" placeholder="英语单词，例如 apple"/><input v-model="meaning" placeholder="中文释义"/><select v-model="assetKey"><option v-for="k in assets" :key="k" :value="k">{{k||'未关联 3D 素材'}}</option></select><button :disabled="busy" @click="generate">AI 补全建议</button><button :disabled="busy" @click="create">保存草稿</button></div><p v-if="suggestion">示例句：{{suggestion}}</p><small>AI 输出不会自动加入词库或发布。没有配置模型时仍可手工录入。</small></section>
-<section class="import-section"><div class="section-heading"><div><span class="section-eyebrow">IMPORT VOCABULARY</span><h2>📚 批量导入小词库</h2><p>一次导入 200 个单词也没问题，自动跳过重复词条。</p></div><span class="section-emoji">📦</span></div><label class="upload" :class="{disabled:busy}"><span>📄 选择 CSV 词库文件</span><input type="file" accept=".csv,text/csv" :disabled="busy" @change="importCsv" /></label><small>支持 UTF-8 CSV，表头：text,meaningCn；目前不支持带引号的复杂 CSV 字段。</small><div v-if="importState.total" class="import-progress" role="status"><div class="progress-row"><strong>{{importState.active?'正在导入…':'导入结果'}}</strong><span>{{importState.processed}} / {{importState.total}}</span></div><progress :value="importState.processed" :max="importState.total"></progress><p>新增 {{importState.created}} · 跳过重复 {{importState.skipped}} · 失败 {{importState.failed}}</p></div></section>
-<section><h2>审核与发布</h2><p>流程：DRAFT → REVIEW → READY → 发布独立快照。</p><div v-for="item in items" :key="item.id" class="item"><img v-if="vocabularyImage(item.assetKey)" :src="vocabularyImage(item.assetKey)" :alt="item.text" class="vocab-preview"/><input v-model="item.text" :disabled="item.status==='READY'"/><input v-model="item.meaningCn" :disabled="item.status==='READY'"/><select v-model="item.assetKey" :disabled="item.status==='READY'"><option v-for="k in assets" :key="k" :value="k">{{k||'未关联素材'}}</option></select><b>{{item.status}}</b><button v-if="item.status!=='READY'" :disabled="busy" @click="edit(item)">保存</button><button v-if="item.status==='DRAFT'" :disabled="busy" @click="transition(item,'review')">送审</button><button v-if="item.status==='REVIEW'" :disabled="busy" @click="transition(item,'approve')">人工批准</button></div><button :disabled="busy||!items.some(x=>x.status==='READY')" @click="publish">发布新的学习包版本</button></section>
+<section class="import-section"><div class="section-heading"><div><span class="section-eyebrow">IMPORT VOCABULARY</span><h2>📚 批量导入小词库</h2><p>单次最多导入 5,000 条、10 MB，自动跳过重复词条。</p></div><span class="section-emoji">📦</span></div><label class="upload" :class="{disabled:busy}"><span>📄 选择 CSV 词库文件</span><input type="file" accept=".csv,text/csv" :disabled="busy" @change="importCsv" /></label><small>支持 UTF-8 CSV，表头：text,meaningCn；目前不支持带引号的复杂 CSV 字段。</small><div v-if="importState.total" class="import-progress" role="status"><div class="progress-row"><strong>{{importState.active?'正在导入…':'导入结果'}}</strong><span>{{importState.processed}} / {{importState.total}}</span></div><progress :value="importState.processed" :max="importState.total"></progress><p>新增 {{importState.created}} · 跳过重复 {{importState.skipped}} · 失败 {{importState.failed}}</p></div></section>
+<section><h2>审核与发布</h2><p>流程：DRAFT → REVIEW → READY → 发布独立快照。</p><div class="review-tools"><input v-model="search" placeholder="搜索英文或中文" /><select v-model="filter"><option value="ALL">全部状态</option><option value="DRAFT">草稿</option><option value="REVIEW">审核中</option><option value="READY">已批准</option><option value="REJECTED">已驳回</option></select><span>共 {{filtered.length}} 条</span></div>
+<div class="batch-toolbar"><label><input type="checkbox" :checked="visible.length>0&&visible.every(x=>selected.includes(x.id))&&!allFiltered" @change="toggleCurrent(($event.target as HTMLInputElement).checked)" />全选当前页</label><label><input type="checkbox" v-model="allFiltered" @change="selected=[]" />选中全部筛选结果（{{filtered.length}}）</label><span>已选 {{selectedCount}}</span>
+<button :disabled="busy||!selectedCount" @click="batch('REVIEW')">批量送审</button><button :disabled="busy||!selectedCount" @click="batch('APPROVE')">批量批准</button><button :disabled="busy||!selectedCount" @click="batch('REJECT')">批量驳回</button></div><input v-model="rejectReason" maxlength="500" placeholder="批量驳回原因（必填）" class="reject-reason" />
+<div v-for="item in visible" :key="item.id" class="item"><input type="checkbox" :checked="selected.includes(item.id)" :disabled="allFiltered" @change="selected=($event.target as HTMLInputElement).checked?[...selected,item.id]:selected.filter(id=>id!==item.id)" /><img v-if="vocabularyImage(item.assetKey)" :src="vocabularyImage(item.assetKey)" :alt="item.text" class="vocab-preview"/><input v-model="item.text" :disabled="item.status==='READY'"/><input v-model="item.meaningCn" :disabled="item.status==='READY'"/><select v-model="item.assetKey" :disabled="item.status==='READY'"><option v-for="k in assets" :key="k" :value="k">{{k||'未关联素材'}}</option></select><b>{{item.status}}</b><small v-if="item.rejectReason">驳回：{{item.rejectReason}}</small><button v-if="item.status!=='READY'" :disabled="busy" @click="edit(item)">保存</button><button v-if="item.status==='DRAFT'" :disabled="busy" @click="transition(item,'review')">送审</button><button v-if="item.status==='REVIEW'" :disabled="busy" @click="transition(item,'approve')">人工批准</button></div><div class="pagination"><button :disabled="pageNo<=1" @click="pageNo--">上一页</button><span>第 {{pageNo}} / {{pages}} 页</span><button :disabled="pageNo>=pages" @click="pageNo++">下一页</button></div><button :disabled="busy||!items.some(x=>x.status==='READY')" @click="publish">发布新的学习包版本</button></section>
 <p class="error" role="alert">{{error}}</p><p class="success" role="status">{{feedback}}</p></main></template>
 <style scoped>
 .parent{max-width:1160px;margin:auto;padding:18px 24px 70px;color:#344b49}
@@ -65,4 +66,4 @@ onMounted(refresh);
 .import-section{background:linear-gradient(110deg,#fff,#faf8ff)!important}.section-heading{display:flex;justify-content:space-between;align-items:center}.section-heading p{margin:0 0 22px}.section-emoji{font-size:55px}.upload{display:inline-flex;align-items:center;gap:10px;position:relative;border:2px dashed #b9a4e7;background:#f5f0ff;color:#6550b7;border-radius:18px;padding:18px 25px;cursor:pointer;font-weight:800}.upload input{position:absolute;width:100%;height:100%;inset:0;opacity:0;cursor:pointer}.upload.disabled{opacity:.5;pointer-events:none}
 .import-progress{margin-top:20px;border-radius:15px;background:#f4f0fc;padding:16px}.progress-row{display:flex;justify-content:space-between}.import-progress progress{width:100%;height:15px;accent-color:#9076da;margin-top:10px}.import-progress p{margin:5px 0!important}
 @media(max-width:680px){.parent{padding:12px}.hero{padding:23px;flex-direction:column;align-items:flex-start}.hero h1{font-size:26px}.stats{gap:7px}.stats>div{padding:12px}.stats strong{font-size:24px}.parent section{padding:20px}.section-emoji{display:none}}
-</style>
+.review-tools,.batch-toolbar,.pagination{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}.batch-toolbar{padding:13px;background:#f5f0ff;border-radius:14px}.batch-toolbar label{display:flex;align-items:center;gap:4px}.batch-toolbar input[type=checkbox],.item input[type=checkbox]{min-width:18px;width:18px;height:18px;accent-color:#806cd3}.reject-reason{width:min(500px,95%)}.pagination{justify-content:center}.item>small{color:#bb5169;max-width:220px;overflow-wrap:anywhere}</style>

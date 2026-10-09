@@ -1868,3 +1868,11 @@ loading → intro → playing → celebrating → playing
 
 ### 未交付事项
 授权高质量 GLB 模型、角色骨骼动画与音效、真实关卡地图、多场景复用、设备同步和正式性能/E2E 测试，仍属于后续工作。
+
+
+## 2026-10-09 V1.2 批量导入与审核实现
+- 使用 Apache Commons CSV 在 Spring Boot 中解析上传 MultipartFile，接口 POST /api/v1/parent/content/import，大小限制 10 MB、记录数限制 5,000。
+- 使用 POST /api/v1/parent/content/batch-transition，支持明确 ids 或 allFiltered+status+search 的全筛选结果操作。
+- ContentEntity 新增 rejectReason、reviewedAt、updatedAt，状态增加 REJECTED；开发环境依靠 JPA schema update，正式部署须补数据库迁移。
+- 前端词表当前使用内存分页，适合 5,000 条以下；后续数据进一步扩大时改用数据库分页/索引和异步导入任务。
+- 当前上传 HTTP 请求执行同步解析和入库，不是异步任务：页面不能离开后续继续导入，失败后重新上传即可利用去重能力重试。
