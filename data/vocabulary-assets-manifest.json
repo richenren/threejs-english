@@ -352,6 +352,76 @@
       "sourceType": "generated",
       "license": "project-generated",
       "status": "approved"
+    },
+    {
+      "word": "cup",
+      "path": "/vocabulary-assets/cup.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "plate",
+      "path": "/vocabulary-assets/plate.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bowl",
+      "path": "/vocabulary-assets/bowl.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "spoon",
+      "path": "/vocabulary-assets/spoon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "fork",
+      "path": "/vocabulary-assets/fork.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "knife",
+      "path": "/vocabulary-assets/knife.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "chopsticks",
+      "path": "/vocabulary-assets/chopsticks.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pan",
+      "path": "/vocabulary-assets/pan.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pot",
+      "path": "/vocabulary-assets/pot.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "kettle",
+      "path": "/vocabulary-assets/kettle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
     }
   ]
 }
