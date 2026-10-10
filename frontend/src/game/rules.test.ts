@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {nextHint,masteryDelta} from './rules';
+describe('learning rules',()=>{it('caps hints',()=>expect(nextHint(4)).toBe(4));it('awards first attempt',()=>expect(masteryDelta({firstTryCorrect:true,hintLevel:0,semanticErrors:0})).toBe(3));it('does not reward Chinese hint',()=>expect(masteryDelta({firstTryCorrect:false,hintLevel:4,semanticErrors:2})).toBe(0));});

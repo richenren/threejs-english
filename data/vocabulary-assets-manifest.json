@@ -1,0 +1,1767 @@
+{
+  "version": 1,
+  "policy": "licensed-web-first-then-generated",
+  "targetStyle": "photorealistic",
+  "assets": [
+    {
+      "word": "apple",
+      "path": "/vocabulary-assets/apple.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "banana",
+      "path": "/vocabulary-assets/banana.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "orange",
+      "path": "/vocabulary-assets/orange.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pear",
+      "path": "/vocabulary-assets/pear.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "peach",
+      "path": "/vocabulary-assets/peach.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "grape",
+      "path": "/vocabulary-assets/grape.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "strawberry",
+      "path": "/vocabulary-assets/strawberry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "watermelon",
+      "path": "/vocabulary-assets/watermelon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "lemon",
+      "path": "/vocabulary-assets/lemon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "mango",
+      "path": "/vocabulary-assets/mango.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pineapple",
+      "path": "/vocabulary-assets/pineapple.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cherry",
+      "path": "/vocabulary-assets/cherry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "blueberry",
+      "path": "/vocabulary-assets/blueberry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "kiwi",
+      "path": "/vocabulary-assets/kiwi.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "coconut",
+      "path": "/vocabulary-assets/coconut.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "carrot",
+      "path": "/vocabulary-assets/carrot.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "potato",
+      "path": "/vocabulary-assets/potato.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "tomato",
+      "path": "/vocabulary-assets/tomato.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "onion",
+      "path": "/vocabulary-assets/onion.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "corn",
+      "path": "/vocabulary-assets/corn.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cucumber",
+      "path": "/vocabulary-assets/cucumber.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pumpkin",
+      "path": "/vocabulary-assets/pumpkin.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cabbage",
+      "path": "/vocabulary-assets/cabbage.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "broccoli",
+      "path": "/vocabulary-assets/broccoli.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pea",
+      "path": "/vocabulary-assets/pea.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pepper",
+      "path": "/vocabulary-assets/pepper.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "mushroom",
+      "path": "/vocabulary-assets/mushroom.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "lettuce",
+      "path": "/vocabulary-assets/lettuce.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "garlic",
+      "path": "/vocabulary-assets/garlic.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "spinach",
+      "path": "/vocabulary-assets/spinach.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bread",
+      "path": "/vocabulary-assets/bread.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "rice",
+      "path": "/vocabulary-assets/rice.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "noodle",
+      "path": "/vocabulary-assets/noodle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "egg",
+      "path": "/vocabulary-assets/egg.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "milk",
+      "path": "/vocabulary-assets/milk.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "water",
+      "path": "/vocabulary-assets/water.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "juice",
+      "path": "/vocabulary-assets/juice.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cheese",
+      "path": "/vocabulary-assets/cheese.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cake",
+      "path": "/vocabulary-assets/cake.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cookie",
+      "path": "/vocabulary-assets/cookie.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "soup",
+      "path": "/vocabulary-assets/soup.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "fish",
+      "path": "/vocabulary-assets/fish.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "chicken",
+      "path": "/vocabulary-assets/chicken.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "meat",
+      "path": "/vocabulary-assets/meat.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "yogurt",
+      "path": "/vocabulary-assets/yogurt.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "sandwich",
+      "path": "/vocabulary-assets/sandwich.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pizza",
+      "path": "/vocabulary-assets/pizza.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "hamburger",
+      "path": "/vocabulary-assets/hamburger.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "ice cream",
+      "path": "/vocabulary-assets/ice-cream.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "butter",
+      "path": "/vocabulary-assets/butter.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cup",
+      "path": "/vocabulary-assets/cup.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "plate",
+      "path": "/vocabulary-assets/plate.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bowl",
+      "path": "/vocabulary-assets/bowl.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "spoon",
+      "path": "/vocabulary-assets/spoon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "fork",
+      "path": "/vocabulary-assets/fork.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "knife",
+      "path": "/vocabulary-assets/knife.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "chopsticks",
+      "path": "/vocabulary-assets/chopsticks.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pan",
+      "path": "/vocabulary-assets/pan.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pot",
+      "path": "/vocabulary-assets/pot.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "kettle",
+      "path": "/vocabulary-assets/kettle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bottle",
+      "path": "/vocabulary-assets/bottle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "fridge",
+      "path": "/vocabulary-assets/fridge.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "stove",
+      "path": "/vocabulary-assets/stove.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "sink",
+      "path": "/vocabulary-assets/sink.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "table",
+      "path": "/vocabulary-assets/table.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "chair",
+      "path": "/vocabulary-assets/chair.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "napkin",
+      "path": "/vocabulary-assets/napkin.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "apron",
+      "path": "/vocabulary-assets/apron.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "tray",
+      "path": "/vocabulary-assets/tray.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "glass",
+      "path": "/vocabulary-assets/glass.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "home",
+      "path": "/vocabulary-assets/home.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "house",
+      "path": "/vocabulary-assets/house.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "kitchen",
+      "path": "/vocabulary-assets/kitchen.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bedroom",
+      "path": "/vocabulary-assets/bedroom.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bathroom",
+      "path": "/vocabulary-assets/bathroom.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "living room",
+      "path": "/vocabulary-assets/living-room.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "door",
+      "path": "/vocabulary-assets/door.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "window",
+      "path": "/vocabulary-assets/window.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bed",
+      "path": "/vocabulary-assets/bed.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pillow",
+      "path": "/vocabulary-assets/pillow.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "blanket",
+      "path": "/vocabulary-assets/blanket.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "sofa",
+      "path": "/vocabulary-assets/sofa.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "lamp",
+      "path": "/vocabulary-assets/lamp.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "clock",
+      "path": "/vocabulary-assets/clock.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "mirror",
+      "path": "/vocabulary-assets/mirror.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "desk",
+      "path": "/vocabulary-assets/desk.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "shelf",
+      "path": "/vocabulary-assets/shelf.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "carpet",
+      "path": "/vocabulary-assets/carpet.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "towel",
+      "path": "/vocabulary-assets/towel.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "soap",
+      "path": "/vocabulary-assets/soap.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "mother",
+      "path": "/vocabulary-assets/mother.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "father",
+      "path": "/vocabulary-assets/father.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "sister",
+      "path": "/vocabulary-assets/sister.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "brother",
+      "path": "/vocabulary-assets/brother.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "grandma",
+      "path": "/vocabulary-assets/grandma.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "grandpa",
+      "path": "/vocabulary-assets/grandpa.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "baby",
+      "path": "/vocabulary-assets/baby.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "friend",
+      "path": "/vocabulary-assets/friend.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "teacher",
+      "path": "/vocabulary-assets/teacher.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "child",
+      "path": "/vocabulary-assets/child.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cat",
+      "path": "/vocabulary-assets/cat.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "dog",
+      "path": "/vocabulary-assets/dog.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "bird",
+      "path": "/vocabulary-assets/bird.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "duck",
+      "path": "/vocabulary-assets/duck.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "rabbit",
+      "path": "/vocabulary-assets/rabbit.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cow",
+      "path": "/vocabulary-assets/cow.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pig",
+      "path": "/vocabulary-assets/pig.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "sheep",
+      "path": "/vocabulary-assets/sheep.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "horse",
+      "path": "/vocabulary-assets/horse.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "goat",
+      "path": "/vocabulary-assets/goat.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "elephant",
+      "path": "/vocabulary-assets/elephant.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "lion",
+      "path": "/vocabulary-assets/lion.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "tiger",
+      "path": "/vocabulary-assets/tiger.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "monkey",
+      "path": "/vocabulary-assets/monkey.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "panda",
+      "path": "/vocabulary-assets/panda.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "bear",
+      "path": "/vocabulary-assets/bear.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "frog",
+      "path": "/vocabulary-assets/frog.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "turtle",
+      "path": "/vocabulary-assets/turtle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "butterfly",
+      "path": "/vocabulary-assets/butterfly.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "bee",
+      "path": "/vocabulary-assets/bee.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "red",
+      "path": "/vocabulary-assets/red.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "blue",
+      "path": "/vocabulary-assets/blue.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "yellow",
+      "path": "/vocabulary-assets/yellow.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "green",
+      "path": "/vocabulary-assets/green.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "pink",
+      "path": "/vocabulary-assets/pink.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "purple",
+      "path": "/vocabulary-assets/purple.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "black",
+      "path": "/vocabulary-assets/black.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "white",
+      "path": "/vocabulary-assets/white.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "brown",
+      "path": "/vocabulary-assets/brown.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "gray",
+      "path": "/vocabulary-assets/gray.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "circle",
+      "path": "/vocabulary-assets/circle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "square",
+      "path": "/vocabulary-assets/square.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "triangle",
+      "path": "/vocabulary-assets/triangle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "star",
+      "path": "/vocabulary-assets/star.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "heart",
+      "path": "/vocabulary-assets/heart.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "head",
+      "path": "/vocabulary-assets/head.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "hair",
+      "path": "/vocabulary-assets/hair.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "eye",
+      "path": "/vocabulary-assets/eye.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "ear",
+      "path": "/vocabulary-assets/ear.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "nose",
+      "path": "/vocabulary-assets/nose.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "mouth",
+      "path": "/vocabulary-assets/mouth.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "tooth",
+      "path": "/vocabulary-assets/tooth.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "hand",
+      "path": "/vocabulary-assets/hand.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "arm",
+      "path": "/vocabulary-assets/arm.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "leg",
+      "path": "/vocabulary-assets/leg.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "foot",
+      "path": "/vocabulary-assets/foot.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "finger",
+      "path": "/vocabulary-assets/finger.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "face",
+      "path": "/vocabulary-assets/face.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "knee",
+      "path": "/vocabulary-assets/knee.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "shoulder",
+      "path": "/vocabulary-assets/shoulder.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "eat",
+      "path": "/vocabulary-assets/eat.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "drink",
+      "path": "/vocabulary-assets/drink.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "sleep",
+      "path": "/vocabulary-assets/sleep.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "wake",
+      "path": "/vocabulary-assets/wake.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "walk",
+      "path": "/vocabulary-assets/walk.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "run",
+      "path": "/vocabulary-assets/run.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "jump",
+      "path": "/vocabulary-assets/jump.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "sit",
+      "path": "/vocabulary-assets/sit.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "stand",
+      "path": "/vocabulary-assets/stand.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "read",
+      "path": "/vocabulary-assets/read.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "write",
+      "path": "/vocabulary-assets/write.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "draw",
+      "path": "/vocabulary-assets/draw.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "sing",
+      "path": "/vocabulary-assets/sing.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "dance",
+      "path": "/vocabulary-assets/dance.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "play",
+      "path": "/vocabulary-assets/play.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "open",
+      "path": "/vocabulary-assets/open.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "close",
+      "path": "/vocabulary-assets/close.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "wash",
+      "path": "/vocabulary-assets/wash.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "cook",
+      "path": "/vocabulary-assets/cook.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "cut",
+      "path": "/vocabulary-assets/cut.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "mix",
+      "path": "/vocabulary-assets/mix.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "pour",
+      "path": "/vocabulary-assets/pour.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "smile",
+      "path": "/vocabulary-assets/smile.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "listen",
+      "path": "/vocabulary-assets/listen.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "look",
+      "path": "/vocabulary-assets/look.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "book",
+      "path": "/vocabulary-assets/book.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "pencil",
+      "path": "/vocabulary-assets/pencil.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "pen",
+      "path": "/vocabulary-assets/pen.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "eraser",
+      "path": "/vocabulary-assets/eraser.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "ruler",
+      "path": "/vocabulary-assets/ruler.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "schoolbag",
+      "path": "/vocabulary-assets/schoolbag.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "paper",
+      "path": "/vocabulary-assets/paper.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "notebook",
+      "path": "/vocabulary-assets/notebook.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "crayon",
+      "path": "/vocabulary-assets/crayon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "scissors",
+      "path": "/vocabulary-assets/scissors.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "sun",
+      "path": "/vocabulary-assets/sun.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "moon",
+      "path": "/vocabulary-assets/moon.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "sky",
+      "path": "/vocabulary-assets/sky.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "cloud",
+      "path": "/vocabulary-assets/cloud.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "rain",
+      "path": "/vocabulary-assets/rain.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "snow",
+      "path": "/vocabulary-assets/snow.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "wind",
+      "path": "/vocabulary-assets/wind.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "tree",
+      "path": "/vocabulary-assets/tree.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "flower",
+      "path": "/vocabulary-assets/flower.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "grass",
+      "path": "/vocabulary-assets/grass.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "river",
+      "path": "/vocabulary-assets/river.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "mountain",
+      "path": "/vocabulary-assets/mountain.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "sea",
+      "path": "/vocabulary-assets/sea.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "beach",
+      "path": "/vocabulary-assets/beach.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "leaf",
+      "path": "/vocabulary-assets/leaf.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic"
+    },
+    {
+      "word": "you",
+      "path": "/vocabulary-assets/you.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "i",
+      "path": "/vocabulary-assets/i.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "to",
+      "path": "/vocabulary-assets/to.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "it",
+      "path": "/vocabulary-assets/it.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "and",
+      "path": "/vocabulary-assets/and.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "that",
+      "path": "/vocabulary-assets/that.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "in",
+      "path": "/vocabulary-assets/in.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "what",
+      "path": "/vocabulary-assets/what.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "we",
+      "path": "/vocabulary-assets/we.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "me",
+      "path": "/vocabulary-assets/me.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "this",
+      "path": "/vocabulary-assets/this.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "he",
+      "path": "/vocabulary-assets/he.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "for",
+      "path": "/vocabulary-assets/for.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "my",
+      "path": "/vocabulary-assets/my.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "on",
+      "path": "/vocabulary-assets/on.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "have",
+      "path": "/vocabulary-assets/have.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "your",
+      "path": "/vocabulary-assets/your.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "do",
+      "path": "/vocabulary-assets/do.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "no",
+      "path": "/vocabulary-assets/no.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "with",
+      "path": "/vocabulary-assets/with.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "the",
+      "path": "/vocabulary-assets/the.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "a",
+      "path": "/vocabulary-assets/a.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "of",
+      "path": "/vocabulary-assets/of.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "is",
+      "path": "/vocabulary-assets/is.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "not",
+      "path": "/vocabulary-assets/not.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "be",
+      "path": "/vocabulary-assets/be.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "are",
+      "path": "/vocabulary-assets/are.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "can",
+      "path": "/vocabulary-assets/can.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "know",
+      "path": "/vocabulary-assets/know.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "but",
+      "path": "/vocabulary-assets/but.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    }
+  ]
+}
