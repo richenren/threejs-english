@@ -142,6 +142,76 @@
       "sourceType": "generated",
       "license": "project-generated",
       "status": "approved"
+    },
+    {
+      "word": "cucumber",
+      "path": "/vocabulary-assets/cucumber.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pumpkin",
+      "path": "/vocabulary-assets/pumpkin.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cabbage",
+      "path": "/vocabulary-assets/cabbage.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "broccoli",
+      "path": "/vocabulary-assets/broccoli.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pea",
+      "path": "/vocabulary-assets/pea.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pepper",
+      "path": "/vocabulary-assets/pepper.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "mushroom",
+      "path": "/vocabulary-assets/mushroom.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "lettuce",
+      "path": "/vocabulary-assets/lettuce.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "garlic",
+      "path": "/vocabulary-assets/garlic.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "spinach",
+      "path": "/vocabulary-assets/spinach.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
     }
   ]
 }
