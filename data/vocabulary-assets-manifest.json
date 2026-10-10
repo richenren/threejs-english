@@ -1492,6 +1492,276 @@
       "license": "project-generated",
       "status": "approved",
       "style": "photorealistic"
+    },
+    {
+      "word": "you",
+      "path": "/vocabulary-assets/you.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "i",
+      "path": "/vocabulary-assets/i.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "to",
+      "path": "/vocabulary-assets/to.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "it",
+      "path": "/vocabulary-assets/it.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "and",
+      "path": "/vocabulary-assets/and.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "that",
+      "path": "/vocabulary-assets/that.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "in",
+      "path": "/vocabulary-assets/in.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "what",
+      "path": "/vocabulary-assets/what.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "we",
+      "path": "/vocabulary-assets/we.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "me",
+      "path": "/vocabulary-assets/me.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "this",
+      "path": "/vocabulary-assets/this.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "he",
+      "path": "/vocabulary-assets/he.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "for",
+      "path": "/vocabulary-assets/for.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "my",
+      "path": "/vocabulary-assets/my.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "on",
+      "path": "/vocabulary-assets/on.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "have",
+      "path": "/vocabulary-assets/have.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "your",
+      "path": "/vocabulary-assets/your.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "do",
+      "path": "/vocabulary-assets/do.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "no",
+      "path": "/vocabulary-assets/no.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "with",
+      "path": "/vocabulary-assets/with.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "the",
+      "path": "/vocabulary-assets/the.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "a",
+      "path": "/vocabulary-assets/a.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "of",
+      "path": "/vocabulary-assets/of.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "is",
+      "path": "/vocabulary-assets/is.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "not",
+      "path": "/vocabulary-assets/not.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "be",
+      "path": "/vocabulary-assets/be.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "are",
+      "path": "/vocabulary-assets/are.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "can",
+      "path": "/vocabulary-assets/can.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "know",
+      "path": "/vocabulary-assets/know.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "but",
+      "path": "/vocabulary-assets/but.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
     }
   ]
 }
