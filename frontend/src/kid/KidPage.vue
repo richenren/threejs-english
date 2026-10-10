@@ -23,7 +23,7 @@ const isAudioMatch=computed(()=>stage.value.kind==='AUDIO_MATCH');const isSceneR
 const totalRounds=computed(()=>stage.value.kind==='EXPLORE_3D'?items.value.length:items.value.length);
 const stageProgress=computed(()=>stage.value.kind==='EXPLORE_3D'?(discoveredKeys.value.length/Math.max(items.value.length,1))*100:(phase.value==='complete'?100:(round.value/Math.max(totalRounds.value,1))*100));
 const worldStars=computed(()=>Object.values(progressState.value.bestStars).reduce((a,b)=>a+b,0));
-const maxWorldStars=(kitchenStages.length-1)*items.value.length*3;
+const maxWorldStars=computed(()=>(kitchenStages.length-1)*items.value.length*3);
 function speak(text=current.value?.text??''){if(!soundEnabled.value||!text||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.82;u.pitch=1.06;window.speechSynthesis.speak(u)}
 function instruction(){const item=current.value;if(!item)return'';return round.value%2===0?'Find the '+item.text+'.':'Touch the '+item.text+'.'}
 function speakTask(){speak(isSceneRound.value?instruction():current.value?.text)}

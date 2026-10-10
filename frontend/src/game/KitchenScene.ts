@@ -13,7 +13,7 @@ export class KitchenScene {
   private frame = 0;
   private resizeObserver: ResizeObserver;
   private hovered?: THREE.Group;
-  private clock = new THREE.Clock();
+  private timer = new THREE.Timer();
   private mascot?: THREE.Group;
   private celebrateUntil = 0;
   private selected?: THREE.Group;
@@ -23,7 +23,8 @@ export class KitchenScene {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    this.timer.connect(container.ownerDocument);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.65;
@@ -132,7 +133,7 @@ export class KitchenScene {
   }
   celebrate(key: string) {
     this.selected=this.targets.find(target=>target.userData.key===key);
-    this.celebrateUntil=this.clock.getElapsedTime()+1.25;
+    this.celebrateUntil=this.timer.getElapsed()+1.25;
   }
   private createItem(key: string): THREE.Group {
     const g = new THREE.Group();
@@ -193,7 +194,8 @@ export class KitchenScene {
   }
   private animate=()=>{
     this.frame=requestAnimationFrame(this.animate);
-    const t=this.clock.getElapsedTime();
+    this.timer.update();
+    const t=this.timer.getElapsed();
     for(let i=0;i<this.targets.length;i++){
       const item=this.targets[i],hover=item===this.hovered;
       item.position.y=(item.userData.baseY as number)+Math.sin(t*1.7+i)*.04+(hover?.17:0);
@@ -212,7 +214,7 @@ export class KitchenScene {
     this.renderer.render(this.scene,this.camera);
   };
   dispose(){
-    cancelAnimationFrame(this.frame);this.resizeObserver.disconnect();
+    cancelAnimationFrame(this.frame);this.timer.dispose();this.resizeObserver.disconnect();
     this.renderer.domElement.removeEventListener('pointermove',this.move);
     this.renderer.domElement.removeEventListener('pointerleave',this.leave);
     this.renderer.domElement.removeEventListener('pointerup',this.click);
