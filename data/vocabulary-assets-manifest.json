@@ -212,6 +212,76 @@
       "sourceType": "generated",
       "license": "project-generated",
       "status": "approved"
+    },
+    {
+      "word": "bread",
+      "path": "/vocabulary-assets/bread.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "rice",
+      "path": "/vocabulary-assets/rice.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "noodle",
+      "path": "/vocabulary-assets/noodle.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "egg",
+      "path": "/vocabulary-assets/egg.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "milk",
+      "path": "/vocabulary-assets/milk.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "water",
+      "path": "/vocabulary-assets/water.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "juice",
+      "path": "/vocabulary-assets/juice.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cheese",
+      "path": "/vocabulary-assets/cheese.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cake",
+      "path": "/vocabulary-assets/cake.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "cookie",
+      "path": "/vocabulary-assets/cookie.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
     }
   ]
 }
