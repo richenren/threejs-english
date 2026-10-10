@@ -282,6 +282,76 @@
       "sourceType": "generated",
       "license": "project-generated",
       "status": "approved"
+    },
+    {
+      "word": "soup",
+      "path": "/vocabulary-assets/soup.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "fish",
+      "path": "/vocabulary-assets/fish.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "chicken",
+      "path": "/vocabulary-assets/chicken.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "meat",
+      "path": "/vocabulary-assets/meat.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "yogurt",
+      "path": "/vocabulary-assets/yogurt.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "sandwich",
+      "path": "/vocabulary-assets/sandwich.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "pizza",
+      "path": "/vocabulary-assets/pizza.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "hamburger",
+      "path": "/vocabulary-assets/hamburger.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "ice cream",
+      "path": "/vocabulary-assets/ice-cream.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
+    },
+    {
+      "word": "butter",
+      "path": "/vocabulary-assets/butter.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved"
     }
   ]
 }
