@@ -1,0 +1,9 @@
+# Copy this file to application-local.yml in the same directory.
+# Never commit application-local.yml or any file containing a real API key.
+# This file is read only by the Spring Boot backend; do not put it in frontend/.
+ai:
+  base-url: "https://your-openai-compatible-provider.example/v1"
+  api-key: "REPLACE_WITH_YOUR_API_KEY"
+  model: "REPLACE_WITH_MODEL_ID"
+  # Optional override; defaults to 25 seconds
+  timeout-seconds: 25

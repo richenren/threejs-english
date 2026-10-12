@@ -1,0 +1,16 @@
+node_modules/
+dist/
+target/
+.env
+.idea/
+.DS_Store
+
+# Local backend secrets (do not commit)
+/backend/config/application-local.yml
+/backend/config/application-local.yaml
+/backend/config/application-local.properties
+/backend/config/*secret*.yml
+/backend/config/*secret*.yaml
+/backend/config/*secret*.properties
+# Keep the sanitized, committed template
+!/backend/config/application-local.example.yml

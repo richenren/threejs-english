@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {kitchenStages,initialKitchenProgress} from './kitchenWorld';
+describe('kitchen world curriculum',()=>{it('contains a coherent five-stage unit',()=>{expect(kitchenStages.map(x=>x.code)).toEqual(['1-1','1-2','1-3','1-4','1-5']);expect(kitchenStages[0].kind).toBe('EXPLORE_3D');expect(kitchenStages[4].kind).toBe('MIXED_CHALLENGE')});it('starts with only stage one unlocked',()=>expect(initialKitchenProgress().unlockedStage).toBe(0));});
