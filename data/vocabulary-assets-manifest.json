@@ -2032,6 +2032,1086 @@
       "status": "approved",
       "style": "photorealistic",
       "assetKind": "scene"
+    },
+    {
+      "word": "good",
+      "path": "/vocabulary-assets/good.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "who",
+      "path": "/vocabulary-assets/who.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "why",
+      "path": "/vocabulary-assets/why.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "from",
+      "path": "/vocabulary-assets/from.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "let",
+      "path": "/vocabulary-assets/let.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "his",
+      "path": "/vocabulary-assets/his.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "yes",
+      "path": "/vocabulary-assets/yes.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "when",
+      "path": "/vocabulary-assets/when.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "time",
+      "path": "/vocabulary-assets/time.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "an",
+      "path": "/vocabulary-assets/an.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "back",
+      "path": "/vocabulary-assets/back.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "us",
+      "path": "/vocabulary-assets/us.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "would",
+      "path": "/vocabulary-assets/would.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "them",
+      "path": "/vocabulary-assets/them.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "where",
+      "path": "/vocabulary-assets/where.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "take",
+      "path": "/vocabulary-assets/take.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "then",
+      "path": "/vocabulary-assets/then.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "or",
+      "path": "/vocabulary-assets/or.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "our",
+      "path": "/vocabulary-assets/our.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "tell",
+      "path": "/vocabulary-assets/tell.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "really",
+      "path": "/vocabulary-assets/really.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "man",
+      "path": "/vocabulary-assets/man.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "some",
+      "path": "/vocabulary-assets/some.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "say",
+      "path": "/vocabulary-assets/say.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "hey",
+      "path": "/vocabulary-assets/hey.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "could",
+      "path": "/vocabulary-assets/could.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "by",
+      "path": "/vocabulary-assets/by.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "need",
+      "path": "/vocabulary-assets/need.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "something",
+      "path": "/vocabulary-assets/something.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "too",
+      "path": "/vocabulary-assets/too.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "more",
+      "path": "/vocabulary-assets/more.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "way",
+      "path": "/vocabulary-assets/way.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "down",
+      "path": "/vocabulary-assets/down.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "make",
+      "path": "/vocabulary-assets/make.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "very",
+      "path": "/vocabulary-assets/very.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "never",
+      "path": "/vocabulary-assets/never.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "only",
+      "path": "/vocabulary-assets/only.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "people",
+      "path": "/vocabulary-assets/people.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "over",
+      "path": "/vocabulary-assets/over.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "because",
+      "path": "/vocabulary-assets/because.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "little",
+      "path": "/vocabulary-assets/little.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "please",
+      "path": "/vocabulary-assets/please.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "love",
+      "path": "/vocabulary-assets/love.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "should",
+      "path": "/vocabulary-assets/should.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "mean",
+      "path": "/vocabulary-assets/mean.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "sorry",
+      "path": "/vocabulary-assets/sorry.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "give",
+      "path": "/vocabulary-assets/give.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "off",
+      "path": "/vocabulary-assets/off.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "am",
+      "path": "/vocabulary-assets/am.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "thank",
+      "path": "/vocabulary-assets/thank.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "any",
+      "path": "/vocabulary-assets/any.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "two",
+      "path": "/vocabulary-assets/two.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "even",
+      "path": "/vocabulary-assets/even.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "much",
+      "path": "/vocabulary-assets/much.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "sure",
+      "path": "/vocabulary-assets/sure.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "thing",
+      "path": "/vocabulary-assets/thing.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "these",
+      "path": "/vocabulary-assets/these.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "help",
+      "path": "/vocabulary-assets/help.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "first",
+      "path": "/vocabulary-assets/first.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "into",
+      "path": "/vocabulary-assets/into.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "anything",
+      "path": "/vocabulary-assets/anything.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "still",
+      "path": "/vocabulary-assets/still.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "find",
+      "path": "/vocabulary-assets/find.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "life",
+      "path": "/vocabulary-assets/life.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "nothing",
+      "path": "/vocabulary-assets/nothing.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "sir",
+      "path": "/vocabulary-assets/sir.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "day",
+      "path": "/vocabulary-assets/day.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "work",
+      "path": "/vocabulary-assets/work.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "their",
+      "path": "/vocabulary-assets/their.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "again",
+      "path": "/vocabulary-assets/again.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "maybe",
+      "path": "/vocabulary-assets/maybe.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "must",
+      "path": "/vocabulary-assets/must.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "before",
+      "path": "/vocabulary-assets/before.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "other",
+      "path": "/vocabulary-assets/other.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "wait",
+      "path": "/vocabulary-assets/wait.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "stop",
+      "path": "/vocabulary-assets/stop.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "call",
+      "path": "/vocabulary-assets/call.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "after",
+      "path": "/vocabulary-assets/after.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "talk",
+      "path": "/vocabulary-assets/talk.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "away",
+      "path": "/vocabulary-assets/away.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "than",
+      "path": "/vocabulary-assets/than.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "thought",
+      "path": "/vocabulary-assets/thought.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "night",
+      "path": "/vocabulary-assets/night.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "put",
+      "path": "/vocabulary-assets/put.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "great",
+      "path": "/vocabulary-assets/great.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "those",
+      "path": "/vocabulary-assets/those.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "last",
+      "path": "/vocabulary-assets/last.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "better",
+      "path": "/vocabulary-assets/better.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "everything",
+      "path": "/vocabulary-assets/everything.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "new",
+      "path": "/vocabulary-assets/new.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "always",
+      "path": "/vocabulary-assets/always.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "keep",
+      "path": "/vocabulary-assets/keep.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "long",
+      "path": "/vocabulary-assets/long.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "leave",
+      "path": "/vocabulary-assets/leave.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "money",
+      "path": "/vocabulary-assets/money.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "around",
+      "path": "/vocabulary-assets/around.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "name",
+      "path": "/vocabulary-assets/name.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "place",
+      "path": "/vocabulary-assets/place.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "ever",
+      "path": "/vocabulary-assets/ever.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "feel",
+      "path": "/vocabulary-assets/feel.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "old",
+      "path": "/vocabulary-assets/old.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "which",
+      "path": "/vocabulary-assets/which.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "big",
+      "path": "/vocabulary-assets/big.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "lot",
+      "path": "/vocabulary-assets/lot.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "hello",
+      "path": "/vocabulary-assets/hello.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "nice",
+      "path": "/vocabulary-assets/nice.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "believe",
+      "path": "/vocabulary-assets/believe.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "girl",
+      "path": "/vocabulary-assets/girl.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "someone",
+      "path": "/vocabulary-assets/someone.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "fine",
+      "path": "/vocabulary-assets/fine.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "kind",
+      "path": "/vocabulary-assets/kind.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "every",
+      "path": "/vocabulary-assets/every.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "ok",
+      "path": "/vocabulary-assets/ok.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "through",
+      "path": "/vocabulary-assets/through.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "being",
+      "path": "/vocabulary-assets/being.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "grammar"
+    },
+    {
+      "word": "course",
+      "path": "/vocabulary-assets/course.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
+    },
+    {
+      "word": "stay",
+      "path": "/vocabulary-assets/stay.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "left",
+      "path": "/vocabulary-assets/left.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "dad",
+      "path": "/vocabulary-assets/dad.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "photorealistic",
+      "assetKind": "scene"
+    },
+    {
+      "word": "enough",
+      "path": "/vocabulary-assets/enough.webp",
+      "sourceType": "generated",
+      "license": "project-generated",
+      "status": "approved",
+      "style": "programmatic-card",
+      "assetKind": "glyph"
     }
   ]
 }
