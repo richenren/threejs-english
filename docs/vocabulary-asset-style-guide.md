@@ -444,5 +444,5 @@ feat(vocabulary): add core word images 21-30
 - 早期批次多为黏土 / 软陶风，可保留；
 - **从核心词 elephant 起及之后的新图，统一写实风格**；
 - 核心 200 词（`apple` → `leaf`）图片已全部入库（含写实收尾批次 `eat` → `leaf`）；
-- `201–230` 已按 `assetKind` 分流入库：`scene` 手势/方位场景 + `glyph`/`grammar` 程序化字卡；
+- `201–260` 已按 `assetKind` 分流入库：`scene` 手势/方位场景 + `glyph`/`grammar` 程序化字卡；
 - 具体文件仍必须以 GitHub 分支、manifest 和 `frontend/public/vocabulary-assets/` 实际文件为准。
